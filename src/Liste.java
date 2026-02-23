@@ -3,8 +3,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-
-
 // ---------------------------------------------------------//
 
 
@@ -29,17 +27,17 @@ import java.util.ListIterator;
 
 // ❌ public Iterator iterator()  //optional            Gruppe: ❓
 
-// ⚠️ Object[] toArray()                                Katharina
+// ❌ Object[] toArray()                                Gruppe: ❓
 
-// ⚠️ Object[] toArray(Object[] a)                      Katharina 
+// ❌ Object[] toArray(Object[] a)                      Gruppe: ❓
 
 // ✅️ boolean add(Object e)                             Gruppe: Gruppe A
 
 // ✅️ boolean remove(Object o)                          Gruppe: Gruppe B
 
-// ⚠️ public boolean containsAll(Collection c)          Johannes
+// ❌ public boolean containsAll(Collection c)          Gruppe: ❓
 
-// ❌ public boolean addAll(Collection c)               Lenur
+// ❌ public boolean addAll(Collection c)               Gruppe: ❓
 
 // ❌ public boolean addAll(int index, Collection c)    Gruppe: ❓
 
@@ -57,16 +55,15 @@ import java.util.ListIterator;
 
 // ✅️ indexOf(Object o)                                 André
 
-// ✅️ lastIndexOf(Object o)                             André
+// ❌ lastIndexOf(Object o)                             Gruppe: ❓
 
 // ❌ listIterator()                                    Gruppe: ❓
 
 // ❌ ListIterator listIterator(int index)              Gruppe: ❓
 
-// ⚠️ List subList(int fromIndex, int toIndex)          Marcel
+// ❌ List subList(int fromIndex, int toIndex)          Gruppe: ❓
 
 // ------------------------------------------------------------------------ //
-
 
 public class Liste<T> implements List<T>{
     private Element<T> kopf;
@@ -191,24 +188,25 @@ public class Liste<T> implements List<T>{
 
     @Override
     public boolean containsAll(Collection c) {
-        for(Object o:  c){
-            if(!contains(o)){
-                return false;
-            }
-        }
-        return true;
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'containsAll'");
     }
 
     @Override
     public boolean addAll(Collection c) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addAll'");
+        boolean changed = false;  // Flag, um zu verfolgen, ob die Liste geändert wurde
+            for (Object o : c) {
+                add((T) o);  // Füge jedes Element der Collection hinzu
+                changed = true;  // Setze Flag auf true, wenn ein Element hinzugefügt wurde
+            }
+            return changed;  // Gibt true zurück, wenn die Liste geändert wurde
+        // throw new UnsupportedOperationException("Unimplemented method 'addAll'");
     }
 
     @Override
     public boolean addAll(int index, Collection c) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addAll'");
+        
+        // throw new UnsupportedOperationException("Unimplemented method 'addAll'");
     }
 
     @Override

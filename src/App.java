@@ -1,4 +1,6 @@
 
+import java.util.ArrayList;
+
 public class App{
 
     // Testmethode - gibt alle values aus der Liste an - Martin 2026-02-23 13:30
@@ -21,6 +23,13 @@ public class App{
         ausgabeListe(liste);
         
 
+        // Test für addAll
+        ArrayList<String> coll = new ArrayList<>();
+        coll.add("Banana");
+        coll.add("Cherry");
+        boolean changed = liste.addAll(coll);
+        System.out.println("Changed: " + changed);
+        ausgabeListe(liste);
 
         
 
