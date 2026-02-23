@@ -3,6 +3,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+// Test
+
 public class Liste<T> implements List<T>{
     private Element<T> kopf;
 
