@@ -207,7 +207,7 @@ public class Liste<T> implements List<T>{
                 letzterIndex = aktuellerIndex;
             }
             aktuell = aktuell.getNext();
-            aktuellerIndex = aktuellerIndex + 1;
+            aktuellerIndex++;
         }
         return letzterIndex;
     }
