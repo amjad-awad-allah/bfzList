@@ -30,7 +30,8 @@ public class Liste<T> implements List<T>{
             size++;  // Erhöhe den Zähler um 1
             k = k.getNext();  // Springe zum nächsten Element
         }
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
+        return size;  // Gibt die Anzahl der Elemente zurück
+       
     }
 
     @Override
@@ -76,11 +77,11 @@ public class Liste<T> implements List<T>{
     public boolean add(T e) { // hier musste tatsächlich T e rein, da mit Object e keine new Element<> möglich wäre. Typesafety wäre dann nicht gegeben.
         Element<T> newE = new Element<>(e, null);
         Element<T> node = getKopf();
-            if (node.getWert() == null){
+            if (node.getWert() == null){    // überprüfe zunächst ob der Kopf leer ist. Ohne würde ein null an erster Stelle übersprungen werden
                 node.setWert(newE.getWert());
                 return true;
             }
-            while (node != null) {
+            while (node != null) {      // suche bis das nächste Element Leer ist, dann wird am Ende der Liste eine Element hinzugefügt
                 if(node.getNext()==null){
                     node.setNext(newE);
                     return true;
@@ -157,12 +158,11 @@ public class Liste<T> implements List<T>{
 
     @Override
     public void clear() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'clear'");
+        kopf = null; //kein kopf = keine liste
     }
 
     @Override
-    public Object get(int index) {
+    public T get(int index) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'get'");
     }
@@ -180,7 +180,7 @@ public class Liste<T> implements List<T>{
     }
 
     @Override
-    public Object remove(int index) {
+    public T remove(int index) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'remove'");
     }
@@ -194,7 +194,7 @@ public class Liste<T> implements List<T>{
                 return index;
             }
             aktuell = aktuell.getNext();
-            index = index + 1;
+            index++;
         }
         return -1;
     }
@@ -209,7 +209,7 @@ public class Liste<T> implements List<T>{
                 letzterIndex = aktuellerIndex;
             }
             aktuell = aktuell.getNext();
-            aktuellerIndex = aktuellerIndex + 1;
+            aktuellerIndex++;
         }
         return letzterIndex;
     }
