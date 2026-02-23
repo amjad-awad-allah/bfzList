@@ -3,7 +3,67 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+// ---------------------------------------------------------//
 
+
+
+// Gruppe A: Martin, Lenur, Marcel, Johannes, Amjad = contains Methode
+// Gruppe B: Justyn, Aykut, André, Katharina = size und empty methoden
+ 
+
+// ✅️ = Fertig: getestet & funktioniert
+// ⚠️ = In Bearbeitung von
+// ❌ = Noch nicht gemacht
+
+// ✅️ Konstruktor 
+
+// ✅️ getKopf() 
+
+// ✅️ size()                                            Gruppe: B
+
+// ✅️ isEmpty()                                         Gruppe: B
+
+// ✅️ contains(Object o)                                Gruppe: A
+
+// ❌ public Iterator iterator()  //optional            Gruppe: ❓
+
+// ❌ Object[] toArray()                                Gruppe: ❓
+
+// ❌ Object[] toArray(Object[] a)                      Gruppe: ❓
+
+// ✅️ boolean add(Object e)                             Gruppe: Gruppe A
+
+// ✅️ boolean remove(Object o)                          Gruppe: Gruppe B
+
+// ❌ public boolean containsAll(Collection c)          Gruppe: ❓
+
+// ❌ public boolean addAll(Collection c)               Gruppe: ❓
+
+// ❌ public boolean addAll(int index, Collection c)    Gruppe: ❓
+
+// ❌ public boolean retainAll(Collection c) {          Gruppe: ❓
+
+// ✅️ clear()                                           Gruppe: André, Johannes
+
+// ❌ get(int index)                                    Gruppe: ❓
+
+// ❌ set(int index, Object element)                    Gruppe: ❓
+
+// ❌ void add(int index, Object element)               Gruppe: ❓
+
+// ⚠️ T remove(int index)                               Gruppe: ❓ braucht testen
+
+// ✅️ indexOf(Object o)                                 André
+
+// ❌ lastIndexOf(Object o)                             Gruppe: ❓
+
+// ❌ listIterator()                                    Gruppe: ❓
+
+// ❌ ListIterator listIterator(int index)              Gruppe: ❓
+
+// ❌ List subList(int fromIndex, int toIndex)          Gruppe: ❓
+
+// ------------------------------------------------------------------------ //
 
 public class Liste<T> implements List<T>{
     private Element<T> kopf;
