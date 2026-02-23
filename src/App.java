@@ -1,13 +1,9 @@
 import java.util.ArrayList;
 import java.util.Collection;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 
 public class App{
-=======
-public class App {
->>>>>>> cac11b9d4e0ed5a133e7f7767c58cbc96e6000ed
 
     // Testmethode - gibt alle values aus der Liste an - Martin 2026-02-23 13:30
     public static <T> void ausgabeListe(Liste<T> list) {
@@ -31,7 +27,6 @@ public class App {
         System.out.println(liste.remove("KOPF"));
         ausgabeListe(liste);
 
-<<<<<<< HEAD
         // Test für addAll
         ArrayList<String> coll = new ArrayList<>();
         coll.add("Banana");
@@ -39,13 +34,11 @@ public class App {
         boolean changed = liste.addAll(coll);
         System.out.println("Changed: " + changed);
         ausgabeListe(liste);
-=======
-        Collection<String> zuLoeschen = new ArrayList<>();
-        zuLoeschen.add("Apfel");
-        zuLoeschen.add("Clementine");
->>>>>>> cac11b9d4e0ed5a133e7f7767c58cbc96e6000ed
 
         // Rufe removeAll auf
+        ArrayList<String> zuLoeschen = new ArrayList<>();
+        zuLoeschen.add("Apfel");
+        zuLoeschen.add("Clementine");
         boolean geaendert = liste.removeAll(zuLoeschen);
 
         System.out.println("Liste geändert: " + geaendert); // true
