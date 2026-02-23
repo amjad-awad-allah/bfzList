@@ -37,13 +37,13 @@ import java.util.ListIterator;
 
 // ✅️ boolean remove(Object o)                          Gruppe: Gruppe B
 
-// ⚠️ public boolean containsAll(Collection c)          Johannes
+// ✅️  public boolean containsAll(Collection c)          Johannes, noch testen bitte
 
 // ❌ public boolean addAll(Collection c)               Lenur
 
 // ❌ public boolean addAll(int index, Collection c)    Gruppe: ❓
 
-// ❌ public boolean retainAll(Collection c) {          Gruppe: ❓
+// ⚠️ public boolean retainAll(Collection c) {          Gruppe: Johannes
 
 // ✅️ clear()                                           Gruppe: André, Johannes
 
