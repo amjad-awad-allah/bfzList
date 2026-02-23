@@ -3,6 +3,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+
+
 // ---------------------------------------------------------//
 
 
@@ -27,17 +29,17 @@ import java.util.ListIterator;
 
 // ❌ public Iterator iterator()  //optional            Gruppe: ❓
 
-// ❌ Object[] toArray()                                Gruppe: ❓
+// ⚠️ Object[] toArray()                                Katharina
 
-// ❌ Object[] toArray(Object[] a)                      Gruppe: ❓
+// ⚠️ Object[] toArray(Object[] a)                      Katharina 
 
 // ✅️ boolean add(Object e)                             Gruppe: Gruppe A
 
 // ✅️ boolean remove(Object o)                          Gruppe: Gruppe B
 
-// ❌ public boolean containsAll(Collection c)          Gruppe: ❓
+// ⚠️ public boolean containsAll(Collection c)          Johannes
 
-// ❌ public boolean addAll(Collection c)               Gruppe: ❓
+// ❌ public boolean addAll(Collection c)               Lenur
 
 // ❌ public boolean addAll(int index, Collection c)    Gruppe: ❓
 
@@ -55,15 +57,16 @@ import java.util.ListIterator;
 
 // ✅️ indexOf(Object o)                                 André
 
-// ❌ lastIndexOf(Object o)                             Gruppe: ❓
+// ✅️ lastIndexOf(Object o)                             André
 
 // ❌ listIterator()                                    Gruppe: ❓
 
 // ❌ ListIterator listIterator(int index)              Gruppe: ❓
 
-// ❌ List subList(int fromIndex, int toIndex)          Gruppe: ❓
+// ⚠️ List subList(int fromIndex, int toIndex)          Marcel
 
 // ------------------------------------------------------------------------ //
+
 
 public class Liste<T> implements List<T>{
     private Element<T> kopf;
