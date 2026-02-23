@@ -199,9 +199,19 @@ public class Liste<T> implements List<T>{
 
     @Override
     public int lastIndexOf(Object o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'lastIndexOf'");
+        int letzterIndex = -1;
+        int aktuellerIndex = 0;
+        Element<T> aktuell = kopf;
+        while (aktuell != null) {
+            if (aktuell.getWert().equals(o)) {
+                letzterIndex = aktuellerIndex;
+            }
+            aktuell = aktuell.getNext();
+            aktuellerIndex = aktuellerIndex + 1;
+        }
+        return letzterIndex;
     }
+
 
     @Override
     public ListIterator listIterator() {
