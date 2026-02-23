@@ -18,7 +18,7 @@ public class App {
         Liste<String> liste = new Liste<>("KOPF");
 
         liste.add("Apfel");
-        liste.add("Banane");
+        liste.add("Apfel");
         liste.add("Clementine");
         ausgabeListe(liste);
 
