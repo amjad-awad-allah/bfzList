@@ -210,8 +210,13 @@ public class Liste<T> implements List<T>{
 
     @Override
     public boolean removeAll(Collection c) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeAll'");
+        boolean changed  = false;  // Flag, um zu verfolgen, ob die Liste geändert wurde
+        for ( Object o:c){
+            while (remove(o)) {  // Entferne alle Vorkommen von o
+                changed = true;  // Setze Flag auf true, wenn ein Element entfernt wurde
+            }
+        }
+        return changed;
     }
 
     @Override
