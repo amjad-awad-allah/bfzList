@@ -87,7 +87,6 @@ public class Liste<T> implements List<T>{
             }
             return true;
     }
-    }
 
     @Override
     public boolean remove(Object o) {
