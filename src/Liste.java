@@ -72,7 +72,7 @@ public class Liste<T> implements List<T>{
     }
 
     @Override
-    public boolean add(T e) {
+    public boolean add(T e) { // hier musste tatsächlich T e rein, da mit Object e keine new Element<> möglich wäre. Typesafety wäre dann nicht gegeben.
         Element<T> newE = new Element<>(e, null);
         Element<T> node = getKopf();
             if (node.getWert() == null){
@@ -156,12 +156,11 @@ public class Liste<T> implements List<T>{
 
     @Override
     public void clear() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'clear'");
+        kopf = null; //kein kopf = keine liste
     }
 
     @Override
-    public Object get(int index) {
+    public T get(int index) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'get'");
     }
@@ -179,7 +178,7 @@ public class Liste<T> implements List<T>{
     }
 
     @Override
-    public Object remove(int index) {
+    public T remove(int index) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'remove'");
     }
