@@ -192,7 +192,7 @@ public class Liste<T> implements List<T>{
                 return index;
             }
             aktuell = aktuell.getNext();
-            index = index + 1;
+            index++;
         }
         return -1;
     }
