@@ -5,6 +5,7 @@ public class Element<T> {
     public Element(T wert, Element<T> next){
         this.wert = wert;
         this.next = next;
+
     }
 
     public T getWert() {
