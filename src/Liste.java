@@ -90,7 +90,7 @@ public class Liste<T> implements List<T>{
 
     @Override
     public boolean remove(Object o) {
-        if (!contains(o)) {  // Überprüfe zuerst, ob das Objekt existiert
+         if (!contains(o)) {  // Überprüfe zuerst, ob das Objekt existiert
             return false;
         }
         
@@ -104,7 +104,23 @@ public class Liste<T> implements List<T>{
                 setKopf(null);  // Wenn nur ein Element, setze Kopf auf null
             }
             return true;
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+        }
+        
+        // Das zu löschende Element ist nicht der Kopf
+        Element<T> elementdavor = k;  // Element vor dem zu löschenden
+        k = k.getNext();  // Aktuelles Element (das zu prüfende)
+
+        // Durchlaufe die restliche Liste
+        for (int i = 1; i < this.size(); i++) {
+            if (o.equals(k.getWert())) {  // Gefunden!
+                // Verbinde elementdavor direkt mit dem Element nach k (überspringe k)
+                elementdavor.setNext(k.getNext());
+                return true;
+            }
+            elementdavor = elementdavor.getNext();  // Verschiebe "davor" ein Element weiter
+            k = k.getNext();  // Verschiebe aktuelles Element ein Element weiter
+        }
+        return false;
     }
 
     @Override
