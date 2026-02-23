@@ -3,8 +3,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-
-
 public class Liste<T> implements List{
     private Element<T> kopf;
 
@@ -21,21 +19,36 @@ public class Liste<T> implements List{
     }
 
     @Override
-    public int size() {   // 
-        // TODO Auto-generated met hod stub
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
+    public int size() {      
+        int size = 0;
+        Element<T> k = this.getKopf();
+
+        while (k != null) {
+            size++;
+            k = k.getNext();
+        }
+        return size;
+        //throw new UnsupportedOperationException("Unimplemented method 'size'");
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        return kopf == null;
+        //throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
     }
 
     @Override
     public boolean contains(Object o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'contains'");
+        Element<T> k = this.getKopf();
+
+        while (k != null) {
+            if (o.equals(k.getWert())) {
+                return true;
+            }
+            k = k.getNext();
+        }
+        return false;
+       //throw new UnsupportedOperationException("Unimplemented method 'contains'");
     }
 
     @Override
@@ -64,8 +77,34 @@ public class Liste<T> implements List{
 
     @Override
     public boolean remove(Object o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+         if (!contains(o)) {
+            return false;
+        }
+        
+        Element<T> k = this.getKopf();
+
+        if (o.equals(k.getWert())) {
+            if (size() > 1) {
+                setKopf(k.getNext());
+            } else {
+                setKopf(null);
+            }
+            return true;
+        }
+        
+        Element<T> elementdavor = k;
+        k = k.getNext();
+
+        for (int i = 1; i < this.size(); i++) {
+            if (o.equals(k.getWert())) {
+                elementdavor.setNext(k.getNext());
+                return true;
+            }
+            elementdavor = elementdavor.getNext();
+            k = k.getNext();
+        }
+        return false;
+       // throw new UnsupportedOperationException("Unimplemented method 'remove'");
     }
 
     @Override
