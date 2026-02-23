@@ -75,11 +75,11 @@ public class Liste<T> implements List<T>{
     public boolean add(T e) { // hier musste tatsächlich T e rein, da mit Object e keine new Element<> möglich wäre. Typesafety wäre dann nicht gegeben.
         Element<T> newE = new Element<>(e, null);
         Element<T> node = getKopf();
-            if (node.getWert() == null){
+            if (node.getWert() == null){    // überprüfe zunächst ob der Kopf leer ist. Ohne würde ein null an erster Stelle übersprungen werden
                 node.setWert(newE.getWert());
                 return true;
             }
-            while (node != null) {
+            while (node != null) {      // suche bis das nächste Element Leer ist, dann wird am Ende der Liste eine Element hinzugefügt
                 if(node.getNext()==null){
                     node.setNext(newE);
                     return true;
