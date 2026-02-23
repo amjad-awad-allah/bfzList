@@ -20,20 +20,36 @@ public class Liste<T> implements List<T>{
 
     @Override
     public int size() {   // 
-        // TODO Auto-generated met hod stub
+        int size = 0;  // Zähler für die Anzahl der Elemente
+        Element<T> k = this.getKopf();  // Startet beim Kopf der Liste
+
+        // Durchläufe alle Elemente bis zum Ende der Liste
+        while (k != null) {
+            size++;  // Erhöhe den Zähler um 1
+            k = k.getNext();  // Springe zum nächsten Element
+        }
         throw new UnsupportedOperationException("Unimplemented method 'size'");
     }
 
     @Override
     public boolean isEmpty() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        return kopf == null;
+        //throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
     }
 
     @Override
     public boolean contains(Object o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'contains'");
+        Element<T> k = this.getKopf();  // Starte beim Kopf
+
+        // Durchläufe alle Elemente
+        while (k != null) {
+            if (o.equals(k.getWert())) {  // Vergleiche mit aktuellem Element
+                return true;  // Gefunden: gebe true zurück
+            }
+            k = k.getNext();  // Gehe zum nächsten Element
+        }
+        return false;
+        //throw new UnsupportedOperationException("Unimplemented method 'contains'");
     }
 
     @Override
