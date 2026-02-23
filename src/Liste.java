@@ -91,7 +91,20 @@ public class Liste<T> implements List<T>{
 
     @Override
     public boolean remove(Object o) {
-        // TODO Auto-generated method stub
+        if (!contains(o)) {  // Überprüfe zuerst, ob das Objekt existiert
+            return false;
+        }
+        
+        Element<T> k = this.getKopf();  // Starte beim Kopf
+
+        // Spezialfall: Das zu löschende Element ist der Kopf
+        if (o.equals(k.getWert())) {
+            if (size() > 1) {
+                setKopf(k.getNext());  // Setze neuen Kopf auf nächstes Element
+            } else {
+                setKopf(null);  // Wenn nur ein Element, setze Kopf auf null
+            }
+            return true;
         throw new UnsupportedOperationException("Unimplemented method 'remove'");
     }
 
