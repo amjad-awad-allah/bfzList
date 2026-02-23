@@ -19,8 +19,8 @@ public class Liste<T> implements List{
     }
 
     @Override
-    public int size() {
-        // TODO Auto-generated method stub
+    public int size() {   // 
+        // TODO Auto-generated met hod stub
         throw new UnsupportedOperationException("Unimplemented method 'size'");
     }
 
