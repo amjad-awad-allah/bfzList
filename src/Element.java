@@ -9,8 +9,6 @@ public class Element<T> {
     }
 
     public T getWert() {
-
-        
         return wert;
     }
 
