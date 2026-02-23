@@ -28,7 +28,8 @@ public class Liste<T> implements List<T>{
             size++;  // Erhöhe den Zähler um 1
             k = k.getNext();  // Springe zum nächsten Element
         }
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
+        return size;  // Gibt die Anzahl der Elemente zurück
+       
     }
 
     @Override
