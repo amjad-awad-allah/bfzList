@@ -45,11 +45,11 @@ import java.util.ListIterator;
 
 // ✅️ clear()                                           Gruppe: André, Johannes
 
-// ❌ get(int index)                                    Gruppe: ❓
+// ⚠️ get(int index)                                    Amjad
 
-// ❌ set(int index, Object element)                    Gruppe: ❓
+// ⚠️ set(int index, Object element)                    Amjad
 
-// ❌ void add(int index, Object element)               Gruppe: ❓
+// ⚠️ void add(int index, Object element)               Martin
 
 // ⚠️ T remove(int index)                               Gruppe: ❓ braucht testen
 
