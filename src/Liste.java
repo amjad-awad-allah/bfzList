@@ -36,9 +36,9 @@ import java.util.ListIterator;
 // ✅️ boolean remove(Object o)                          Gruppe: Gruppe B
 
 // ❌ public boolean containsAll(Collection c)          Gruppe: ❓
-=======
+
 // ✅️  public boolean containsAll(Collection c)          Johannes, noch testen bitte
->>>>>>> cac11b9d4e0ed5a133e7f7767c58cbc96e6000ed
+
 
 // ✅️ public boolean addAll(Collection c)               Gruppe: Lenur
 
