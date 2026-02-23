@@ -2,9 +2,13 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+<<<<<<< HEAD
 
 
 
+=======
+//jg
+>>>>>>> 6cc9db21ae05b545bad8ab7cc35f698ef3a8f86a
 public class Liste<T> implements List{
     private Element<T> kopf;
 
