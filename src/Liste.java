@@ -3,6 +3,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+
+
+
+
+
+
 public class Liste<T> implements List{
     private Element<T> kopf;
 
