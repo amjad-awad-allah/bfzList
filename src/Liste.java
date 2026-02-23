@@ -183,7 +183,15 @@ public class Liste<T> implements List<T>{
             return null;
         }
         if(index == 0) {
-            return getKopf().getWert();
+            Element<T> node = this.getKopf();
+            if( size() > 1){
+                
+                this. setKopf(this.getKopf().getNext());
+                return node.getWert();
+            }
+            setKopf(null);
+            return node.getWert();
+           
         }else{
             Element<T> node = this.getKopf().getNext();  // Starte beim Kopf // diese variable wird "gelöscht"
             Element<T> nodezwischElement = this.getKopf(); // diese variable wird den zeiger von der nodevariable übernehmen
