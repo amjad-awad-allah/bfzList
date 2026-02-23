@@ -55,9 +55,22 @@ public class Liste<T> implements List<T>{
     }
 
     @Override
-    public boolean add(Object e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+    public boolean add(T e) {
+        Element<T> newE = new Element<>(e, null);
+        Element<T> node = getKopf();
+            if (node.getWert() == null){
+                node.setWert(newE.getWert());
+                return true;
+            }
+            while (node != null) {
+                if(node.getNext()==null){
+                    node.setNext(newE);
+                    return true;
+                }
+                node = node.getNext();
+            }
+            return true;
+    }
     }
 
     @Override
