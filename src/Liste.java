@@ -169,8 +169,16 @@ public class Liste<T> implements List{
 
     @Override
     public int indexOf(Object o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'indexOf'");
+        int index = 0;
+        Element<T> aktuell = kopf;
+        while (aktuell != null) {
+            if (aktuell.getWert().equals(o)) {
+                return index;
+            }
+            aktuell = aktuell.getNext();
+            index = index + 1;
+        }
+        return -1;
     }
 
     @Override
