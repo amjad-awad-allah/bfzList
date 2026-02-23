@@ -181,9 +181,28 @@ public class Liste<T> implements List<T>{
 
     @Override
     public T remove(int index) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
-    }
+        if(index >= size()){
+            return null;
+        }
+        if(index == 0) {
+            return getKopf().getWert();
+        }else{
+            Element<T> node = this.getKopf().getNext();  // Starte beim Kopf // diese variable wird "gelöscht"
+            Element<T> nodezwischElement = this.getKopf(); // diese variable wird den zeiger von der nodevariable übernehmen
+            int zaehler= 1;
+            while(zaehler < index){
+                node = node.getNext();
+                nodezwischElement = nodezwischElement.getNext();
+                zaehler++;
+            }
+            nodezwischElement.setNext(node.getNext());
+            return node.getWert();
+        }
+ 
+         //return null; hier würde der code nie hinkommen --> unreachable code
+    
+
+    }    
 
     @Override
     public int indexOf(Object o) {
