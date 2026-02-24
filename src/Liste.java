@@ -248,21 +248,37 @@ public class Liste<T> implements List<T>{
     public T get(int index) {
         int size = size();
         Element<T> node = getKopf();
-        if (index > 0 || index <size-1){
+        // Grenzfall: index außerhalb des Bereiches:
+        if (index < 0 || index >=size){
             throw new IndexOutOfBoundsException("Index " + index + " is out of bounds!");
         }
-        else{
-            for(int i = 0; i<index; i++){
-                node = node.getNext();
-            }
-            return node.getWert();
+        for(int i = 0; i<index; i++){   // iteration über Index sinnig, man spaar ne unnötige abfrage
+            node = node.getNext();
+        }
+        return node.getWert();
         }
     }
 
     @Override
-    public Object set(int index, Object element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'set'");
+    public T set(int index, T element) {
+        int size = size();
+        Element<T> node = getKopf();
+        if (index < 0 || index >=size){
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds!");
+        }
+        else if (index == 0){   // sonderfall: Kopf
+            T oldValue = kopf.getWert();    // wert zwischenspeichern, bevor dieser überschrieben wird
+            kopf.setWert(element);
+            return oldValue;
+        }
+        else {
+            for (int i=0; i<index-1; i++){
+            node = node.getNext();
+            }
+            T oldValue = node.getWert();    // siehe oben beim kopf
+            node.setWert(element);
+            return oldValue;
+        }
     }
 
     @Override
