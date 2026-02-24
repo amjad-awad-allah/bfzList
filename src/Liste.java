@@ -39,29 +39,29 @@ import java.util.ListIterator;
 
 // ✅️ public boolean addAll(Collection c)               Gruppe: Lenur
 
-// ✅️ public boolean addAll(int index, Collection c)    Gruppe: Lenur
+// ❌ public boolean addAll(int index, Collection c)    Gruppe: Lenur
 
-// ✅️  public boolean retainAll(Collection c) {          Johannes
+// ✅️  public boolean retainAll(Collection c) {          Gruppe: Johannes, noch testen
 
 // ✅️ clear()                                           Gruppe: André, Johannes
 
-// ⚠️ get(int index)                                    Amjad
+// ✅️ get(int index)                                    Amjad, Martin
 
-// ⚠️ set(int index, Object element)                    Amjad
+// ✅️ set(int index, Object element)                    Amjad, Martin
 
 // ✅️ void add(int index, Object element)               Martin
 
-// ⚠️ T remove(int index)                               Gruppe: ❓ braucht testen
+// ⚠️ T remove(int index)                               Johannes braucht testen
 
 // ✅️ indexOf(Object o)                                 André
 
-// ✅️ lastIndexOf(Object o)                             André
+// ✅️  lastIndexOf(Object o)                             André
 
 // ❌ listIterator()                                    Gruppe: ❓
 
 // ❌ ListIterator listIterator(int index)              Gruppe: ❓
 
-// ⚠️ List subList(int fromIndex, int toIndex)          Marcel
+// ❌ List subList(int fromIndex, int toIndex)          Gruppe: ❓
 
 // ------------------------------------------------------------------------ //
 
@@ -121,13 +121,6 @@ public class Liste<T> implements List<T>{
         throw new UnsupportedOperationException("Unimplemented method 'iterator'");
     }
 
-
-
-    // ---------------------------------------------------------------------------------------------//
-    // ---------------------------------------------------------------------------------------------//
-
-
-
     @Override
     public Object[] toArray() {
 
@@ -165,11 +158,6 @@ public class Liste<T> implements List<T>{
         throw new UnsupportedOperationException("Unimplemented method 'toArray'");
     }
 
-
-
-    // ---------------------------------------------------------------------------------------------//
-    // ---------------------------------------------------------------------------------------------//
-    
     @Override
     public boolean add(T e) { // hier musste tatsächlich T e rein, da mit Object e keine new Element<> möglich wäre. Typesafety wäre dann nicht gegeben.
         Element<T> newE = new Element<>(e, null);
@@ -248,13 +236,7 @@ public class Liste<T> implements List<T>{
 
     @Override
     public boolean addAll(int index, Collection c) {
-        boolean changed = false;
-        for (Object o : c) {
-            add(index, (T) o);  // Füge jedes Element der Collection an der angegebenen Position hinzu
-            changed = true;
-            index++;  // Erhöhe den Index für das nächste Element
-        }
-        return changed;
+        
         // throw new UnsupportedOperationException("Unimplemented method 'addAll'");
     }
 
@@ -292,14 +274,39 @@ public class Liste<T> implements List<T>{
 
     @Override
     public T get(int index) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
+        int size = size();
+        Element<T> node = getKopf();
+        // Grenzfall: index außerhalb des Bereiches:
+        if (index < 0 || index >=size){
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds!");
+        }
+        for(int i = 0; i<index; i++){   // iteration über Index sinnig, man spaar ne unnötige abfrage
+            node = node.getNext();
+        }
+        return node.getWert();
     }
+    
 
     @Override
-    public Object set(int index, Object element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'set'");
+    public T set(int index, T element) {
+        int size = size();
+        Element<T> node = getKopf();
+        if (index < 0 || index >=size){
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds!");
+        }
+        else if (index == 0){   // sonderfall: Kopf
+            T oldValue = kopf.getWert();    // wert zwischenspeichern, bevor dieser überschrieben wird
+            kopf.setWert(element);
+            return oldValue;
+        }
+        else {
+            for (int i=0; i<index-1; i++){
+            node = node.getNext();
+            }
+            T oldValue = node.getWert();    // siehe oben beim kopf
+            node.setWert(element);
+            return oldValue;
+        }
     }
 
     @Override
