@@ -227,10 +227,13 @@ public class Liste<T> implements List<T>{
     public boolean retainAll(Collection c) { //nur elemente die auch in collection sind, sollen in der Liste bleiben //vergleiche mit getWert() von Objekt Element
         int listenGroesse = size();
         Element <T> node = getKopf();
-        for(int i = 0; i <listenGroesse; i ++){
+        Element <T> loeschnode = getKopf();
+        for(int i = 0; i <listenGroesse; i++){
             if(!c.contains(node.getWert())){
-                
-                remove(node);
+                loeschnode = node;
+                node= node.getNext();
+              
+                System.out.println("Wurde removed?: "+   remove(loeschnode));
             }else{
                 node= node.getNext();
             }   
