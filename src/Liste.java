@@ -52,17 +52,17 @@ import java.util.ListIterator;
 
 // ✅️ clear()                                           Gruppe: André, Johannes
 
-// ⚠️ get(int index)                                    Amjad, Martin
+// ✅️ get(int index)                                    Amjad, Martin
 
-// ⚠️ set(int index, Object element)                    Amjad, Martin
+// ✅️ set(int index, Object element)                    Amjad, Martin
 
 // ✅️ void add(int index, Object element)               Martin
 
-// ⚠️ T remove(int index)                               Gruppe: ❓ braucht testen
+// ⚠️ T remove(int index)                               Johannes braucht testen
 
 // ✅️ indexOf(Object o)                                 André
 
-// ❌ lastIndexOf(Object o)                             Gruppe: ❓
+// ✅️  lastIndexOf(Object o)                             André
 
 // ❌ listIterator()                                    Gruppe: ❓
 
