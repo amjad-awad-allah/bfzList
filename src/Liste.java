@@ -27,11 +27,8 @@ import java.util.ListIterator;
 
 // ❌ public Iterator iterator()  //optional            Gruppe: ❓
 
-<<<<<<< HEAD
 // ❌ Object[] toArray()                                Gruppe: ❓
-=======
 // ⚠️✅️ Object[] toArray()                                Katharina , braucht 2ten Tester
->>>>>>> f418c8a832c8a806ef67dc9f545ae6a9cd10ab3f
 
 // ❌ Object[] toArray(Object[] a)                      Gruppe: ❓
 
@@ -39,15 +36,12 @@ import java.util.ListIterator;
 
 // ✅️ boolean remove(Object o)                          Gruppe: Gruppe B
 
-<<<<<<< HEAD
 // ❌ public boolean containsAll(Collection c)          Gruppe: ❓
 
 // ✅️  public boolean containsAll(Collection c)          Johannes, noch testen bitte
 
-=======
 
 // ✅️  public boolean containsAll(Collection c)          Johannes
->>>>>>> f418c8a832c8a806ef67dc9f545ae6a9cd10ab3f
 
 
 // ✅️ public boolean addAll(Collection c)               Gruppe: Lenur
