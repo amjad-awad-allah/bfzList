@@ -35,6 +35,15 @@ public class App{
         System.out.println("Changed: " + changed);
         ausgabeListe(liste);
 
+        // Test für addAll mit Index
+        ArrayList<String> coll2 = new ArrayList<>();
+        coll2.add("Wassermelon");
+        coll2.add("Grapes");
+        boolean changed2 = liste.addAll(3, coll2); // Füge bei Index 3 ein
+        System.out.println("Changed with index: " + changed2);
+        ausgabeListe(liste);
+
+
         // Rufe removeAll auf
         ArrayList<String> zuLoeschen = new ArrayList<>();
         zuLoeschen.add("Apfel");
@@ -44,39 +53,10 @@ public class App{
         System.out.println("Liste geändert: " + geaendert); // true
         System.out.println("Neue Größe: " + liste.size()); // 2 (B, D übrig)
 
-<<<<<<< HEAD
 
         //test add index
         liste.add(1, "New 1");
         ausgabeListe(liste);
-=======
-        //test boolean retainAll(Collection c)
-        System.out.println("Test retainAll: ");
-        Collection<String> c = new ArrayList<>();
-        Liste<String> testListe = new Liste<>("Banane"); //Kopfelement
-        testListe.add("Banane");
-        testListe.add("Apfel");
-        testListe.add("Orange");
-        c.add("Apfel");
-        c.add("Apfel"); 
-        c.add("Mandarine");
-        System.out.println("Wahrheitswert für Methode retainall: " + testListe.retainAll(c));
-        ausgabeListe(testListe);
-
-        // test  boolean containsAll(Collection c) 
-        Collection<String> collection2 = new ArrayList<>();
-        Liste<String> testListe2 = new Liste<>("Banane"); //Kopfelement
-        testListe2.add("Apfel");
-        testListe2.add("Orange");
-        collection2.add("Apfel");
-        collection2.add("Banane");
-        System.out.println("Die Liste enthält von jedem Unikat aus Collection einen gleichen Wert? : " + testListe2.containsAll(collection2)); //true
-        collection2.add("Mandarine");
-        System.out.println("Die Liste enthält von jedem Unikat aus Collection einen gleichen Wert? : " + testListe2.containsAll(collection2)); 
-        
-
-    
->>>>>>> eb006d383121c931c4512065ce1931cc43e25af3
 
     }
 }
