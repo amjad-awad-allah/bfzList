@@ -152,11 +152,65 @@ public class Liste<T> implements List<T>{
         // throw new UnsupportedOperationException("Unimplemented method 'toArray'");
     }
 
-    @Override
+//--------------------------------------------- ! ------------------------------------------------ //
+@Override
     public Object[] toArray(Object[] a) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'toArray'");
+    //Element vom Typ der Liste wird mit dem Wert des Kopfes instanziiert
+    // Wir fangen also am anfang der Liste an
+       Element<T> aktuell = kopf;
+    
+    // Ist die Liste auf der wir arbeiten (this) oder das eingegebene array größer?
+    // ein integer Limit wird mit der Größe des Größeren instanziiert
+    // wir wollen ja keinen zu kleinen Array und wir wollen nicht über den Rand des Arrays hinausschreiben
+    int limit = this.size();
+    if (a.length < limit) {
+        limit = a.length; // Wenn das Array zu klein ist, füllen wir nur das, was geht
     }
+
+    // forloop die über die Länge der Liste geht
+    for (int i = 0; i < limit; i++) {
+
+    // Platz für Platz wird das a array mit den Werten der diesigen Liste beschrieben.
+    // T ist dabei der generische Wert den Wirt der Liste eingeben.
+    // Mit den Klammern casten wird, dh wir sorgen dafür daass es dieser Typ wird
+
+    a[i] = (T) aktuell.getWert(); 
+    // Schritt nach vorne
+    aktuell = aktuell.getNext();
+    }
+//     // 4. Wir geben das befüllte Array zurück
+     return a;
+        // TODO Auto-generated method stub
+// throw new UnsupportedOperationException("Unimplemented method 'toArray'");
+    }
+
+        // ------------- //
+// code ref
+// public <E> E[] toArray(E[] a) {
+//     // 1. Wir starten ganz vorne an der Liste
+//     Element<T> aktuell = kopf;
+//     // 2. Wir schauen, was kleiner ist: Die Liste oder das Array?
+//     // Wir wollen ja nicht über den Rand des Arrays hinausschreiben!
+//     int limit = size();
+//     if (a.length < limit) {
+//         limit = a.length; // Wenn das Array zu klein ist, füllen wir nur das, was geht
+//     }
+//     // 3. Wir füllen das Array Platz für Platz
+//     for (int i = 0; i < limit; i++) {
+//         // (E) ist wie ein Etikett: "Liebes Programm, behhandle diesen Wert als Typ E"
+//         a[i] = (E) aktuell.getWert(); 
+//         // Unser bekannter Schritt nach vorne
+//         aktuell = aktuell.getNext();
+//     }
+//     // 4. Wir geben das befüllte Array zurück
+//     return a;
+// }
+
+
+
+        
+
+// ---------------------------------------------!-------------------------------------------------- //
 
     @Override
     public boolean add(T e) { // hier musste tatsächlich T e rein, da mit Object e keine new Element<> möglich wäre. Typesafety wäre dann nicht gegeben.
