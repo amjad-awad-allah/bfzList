@@ -44,7 +44,7 @@ import java.util.ListIterator;
 
 // ❌ public boolean addAll(int index, Collection c)    Gruppe: Lenur
 
-// ✅️  public boolean retainAll(Collection c) {          Gruppe: Johannes, noch testen
+// ✅️  public boolean retainAll(Collection c) {          Johannes 
 
 // ✅️ clear()                                           Gruppe: André, Johannes
 
@@ -126,7 +126,26 @@ public class Liste<T> implements List<T>{
 
     @Override
     public Object[] toArray() {
-        // TODO Auto-generated method stub
+        // // Anlegen des Array der ausgegeben werden soll:
+        // Object[] ausgabeObjectArray;
+
+        // // Casten des
+
+        // for (int i = 0; i < this.size() ; i ++)
+
+
+            
+        // Element<T> k = this.getKopf();  // Startet beim Kopf der Liste
+
+        // // Durchläufe alle Elemente bis zum Ende der Liste
+        // while (k != null) {
+        //     size++;  // Erhöhe den Zähler um 1
+        //     k = k.getNext();  // Springe zum nächsten Element
+        // }
+        // return size;  // Gibt die Anzahl der Elemente zurück
+            
+        // // Ausgabe des befüllten Arrays
+        // return ausgabeObjectArray; 
         throw new UnsupportedOperationException("Unimplemented method 'toArray'");
     }
 
@@ -229,8 +248,14 @@ public class Liste<T> implements List<T>{
         Element <T> node = getKopf();
         for(int i = 0; i <listenGroesse; i ++){
             if(!c.contains(node.getWert())){
+<<<<<<< HEAD
                 
                 remove(node);
+=======
+                loeschnode = node;
+                node= node.getNext();
+                remove(loeschnode.getWert());
+>>>>>>> 1d23151b8342baeda4727fec4de58be7554ca589
             }else{
                 node= node.getNext();
             }   
