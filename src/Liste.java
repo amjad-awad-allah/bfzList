@@ -43,7 +43,7 @@ import java.util.ListIterator;
 
 // ❌ public boolean addAll(int index, Collection c)    Gruppe: ❓
 
-// ⚠️ public boolean retainAll(Collection c) {          Gruppe: Johannes
+// ✅️  public boolean retainAll(Collection c) {          Gruppe: Johannes, noch testen
 
 // ✅️ clear()                                           Gruppe: André, Johannes
 
@@ -223,9 +223,19 @@ public class Liste<T> implements List<T>{
     }
 
     @Override
-    public boolean retainAll(Collection c) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'retainAll'");
+    public boolean retainAll(Collection c) { //nur elemente die auch in collection sind, sollen in der Liste bleiben //vergleiche mit getWert() von Objekt Element
+        int listenGroesse = size();
+        Element <T> node = kopf;
+        for(int i = 0; i <listenGroesse; i ++){
+            if(!c.contains(node.getWert())){
+                
+                remove(node);
+            }else{
+                node= node.getNext();
+            }   
+
+        }
+        return true;
     }
 
     @Override
