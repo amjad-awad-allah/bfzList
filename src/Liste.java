@@ -291,8 +291,8 @@ public class Liste<T> implements List<T>{
             node = node.getNext();
         }
         return node.getWert();
-        }
     }
+    
 
     @Override
     public T set(int index, T element) {
