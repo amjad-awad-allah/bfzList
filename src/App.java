@@ -33,6 +33,15 @@ public class App{
         System.out.println("Changed: " + changed);
         ausgabeListe(liste);
 
+        // Test für addAll mit Index
+        ArrayList<String> coll2 = new ArrayList<>();
+        coll2.add("Wassermelon");
+        coll2.add("Grapes");
+        boolean changed2 = liste.addAll(3, coll2); // Füge bei Index 3 ein
+        System.out.println("Changed with index: " + changed2);
+        ausgabeListe(liste);
+
+
         // Rufe removeAll auf
         ArrayList<String> zuLoeschen = new ArrayList<>();
         zuLoeschen.add("Apfel");
