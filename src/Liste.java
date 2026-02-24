@@ -292,7 +292,6 @@ public class Liste<T> implements List<T> {
     public boolean retainAll(Collection c) { // nur elemente die auch in collection sind, sollen in der Liste bleiben
                                              // //vergleiche mit getWert() von Objekt Element
         int listenGroesse = size();
-<<<<<<< HEAD
         Element<T> node = getKopf();
         Element<T> loeschnode = getKopf();
         for (int i = 0; i < listenGroesse; i++) {
@@ -304,16 +303,6 @@ public class Liste<T> implements List<T> {
             } else {
                 node = node.getNext();
             }
-=======
-        Element <T> node = getKopf();
-        for(int i = 0; i <listenGroesse; i ++){
-            if(!c.contains(node.getWert())){
-                
-                remove(node);
-            }else{
-                node= node.getNext();
-            }   
->>>>>>> e3d268d762efa0c069d0bf810a9bd831dabf4e4b
 
         }
         return true;
