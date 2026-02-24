@@ -123,29 +123,42 @@ public class Liste<T> implements List<T>{
         throw new UnsupportedOperationException("Unimplemented method 'iterator'");
     }
 
+
+
+    // ---------------------------------------------------------------------------------------------//
+    // ---------------------------------------------------------------------------------------------//
+
+
+
     @Override
     public Object[] toArray() {
-        // // Anlegen des Array der ausgegeben werden soll:
-        // Object[] ausgabeObjectArray;
 
-        // // Casten des
+        // Herausfinden der Länge der Liste
+        int laengeListe = this.size();
 
-        // for (int i = 0; i < this.size() ; i ++)
+        // Anlegen der Variablen der ausgegeben werden soll:
+        Object[] ausgabeObjectArray = new Object[laengeListe];
 
+        Element<T> k = this.getKopf(); // Startet beim Kopf der Liste
 
-            
-        // Element<T> k = this.getKopf();  // Startet beim Kopf der Liste
+        int counter = 0;
 
-        // // Durchläufe alle Elemente bis zum Ende der Liste
-        // while (k != null) {
-        //     size++;  // Erhöhe den Zähler um 1
-        //     k = k.getNext();  // Springe zum nächsten Element
-        // }
-        // return size;  // Gibt die Anzahl der Elemente zurück
-            
-        // // Ausgabe des befüllten Arrays
-        // return ausgabeObjectArray; 
-        throw new UnsupportedOperationException("Unimplemented method 'toArray'");
+        // Beschreiben des Arrays mit den Werten der Liste:
+
+        while (k != null) {
+
+            ausgabeObjectArray[counter] = k.getWert();
+
+            k = k.getNext();
+
+            counter++;
+
+        }
+
+        // Ausgabe des befüllten Arrays
+        return ausgabeObjectArray;
+
+        // throw new UnsupportedOperationException("Unimplemented method 'toArray'");
     }
 
     @Override
@@ -154,6 +167,11 @@ public class Liste<T> implements List<T>{
         throw new UnsupportedOperationException("Unimplemented method 'toArray'");
     }
 
+
+
+    // ---------------------------------------------------------------------------------------------//
+    // ---------------------------------------------------------------------------------------------//
+    
     @Override
     public boolean add(T e) { // hier musste tatsächlich T e rein, da mit Object e keine new Element<> möglich wäre. Typesafety wäre dann nicht gegeben.
         Element<T> newE = new Element<>(e, null);
