@@ -41,7 +41,7 @@ import java.util.ListIterator;
 
 // ✅️ public boolean addAll(int index, Collection c)    Gruppe: Lenur
 
-// ✅️  public boolean retainAll(Collection c) {          Gruppe: Johannes, noch testen
+// ✅️ public boolean retainAll(Collection c) {          Gruppe: Johannes, noch testen
 
 // ✅️ clear()                                           Gruppe: André, Johannes
 
@@ -175,6 +175,23 @@ public class Liste<T> implements List<T>{
             }
             return true;
     }
+    // --------------------------------------------
+    //  Bessere Schreibweise für boolean add(T e): By Martin
+    // --------------------------------------------
+    //
+    // public boolean add(T e) {
+    //         if (kopf == null){
+    //             kopf = new Element<>(e, null);
+    //             return true;
+    //         }
+    //         Element <T> node = this.getKopf();
+    //         while (node.getNext() != null) {
+    //             node = node.getNext();
+    //         }
+    //         node.setNext(new Element<>(e, null));
+    //         return true;
+    // }
+    // --------------------------------------------
 
     @Override
     public boolean remove(Object o) {
@@ -316,25 +333,25 @@ public class Liste<T> implements List<T>{
     }
 
     @Override
-    public void add(int index, T element) {
+    public void add(int index, T wert) {
 
         int size = size(); // instanziiert, damit die funktion nicht immer wieder aufgerufen wird
         
         if(index < 0 || index > size){
-            System.out.println("Index out of bounds"); // besser mit exceptions!
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds!"); 
         }
         else if (index == 0){
-            kopf = new Element<>(element, kopf);
+            kopf = new Element<>(wert, kopf);
         }
         else if(index==size){
-            add(element);
+            add(wert);
         }
         else {
             Element<T> node = getKopf();
             for(int i = 0; i<index-1; i++){     // schleife iteriert über übergabe-index, NICHT size. 
                 node = node.getNext();          // man such also das Element VOR dem übergabe-Index
             }
-            node.setNext(new Element<>(element, node.getNext()));  // einfügen des elements zwischen VOR und nach dem Index.
+            node.setNext(new Element<>(wert, node.getNext()));  // einfügen des elements zwischen VOR und nach dem Index.
         }
         size++;
     }
