@@ -52,7 +52,7 @@ import java.util.ListIterator;
 
 // ⚠️ set(int index, Object element)                    Amjad
 
-// ⚠️ void add(int index, Object element)               Martin
+// ✅️ void add(int index, Object element)               Martin
 
 // ⚠️ T remove(int index)                               Gruppe: ❓ braucht testen
 
@@ -257,9 +257,24 @@ public class Liste<T> implements List<T>{
     }
 
     @Override
-    public void add(int index, Object element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+    public void add(int index, T element) {
+        
+        if (index == 0){
+            kopf = new Element<>(element, kopf);
+        }
+        else if(index==size()){
+            add(element);
+        }
+        else if(index < 0 || index > size()){
+            System.out.println("Index out of bounds"); // besser mit exceptions!
+        }
+        else {
+            Element<T> node = kopf.getNext();
+            for(int i = 0; i<index-1; i++){     // schleife iteriert über übergabe-index, NICHT size. 
+                node = node.getNext();          // man such also das Element VOR dem übergabe-Index
+            }
+            node.setNext(new Element<>(element, node.getNext()));  // einfügen des elements zwischen VOR und nach dem Index.
+        }
     }
 
     @Override
