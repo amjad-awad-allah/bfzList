@@ -263,9 +263,6 @@ public class Liste<T> implements List<T> {
 
     @Override
     public boolean addAll(int index, Collection c) {
-<<<<<<< HEAD
-
-=======
         boolean changed = false;
         for (Object o : c) {
             add(index, (T) o);  // Füge jedes Element der Collection an der angegebenen Position hinzu
@@ -273,7 +270,6 @@ public class Liste<T> implements List<T> {
             index++;  // Erhöhe den Index für das nächste Element
         }
         return changed;
->>>>>>> e3d268d762efa0c069d0bf810a9bd831dabf4e4b
         // throw new UnsupportedOperationException("Unimplemented method 'addAll'");
     }
 
