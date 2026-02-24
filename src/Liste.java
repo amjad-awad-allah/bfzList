@@ -126,7 +126,26 @@ public class Liste<T> implements List<T>{
 
     @Override
     public Object[] toArray() {
-        // TODO Auto-generated method stub
+        // // Anlegen des Array der ausgegeben werden soll:
+        // Object[] ausgabeObjectArray;
+
+        // // Casten des
+
+        // for (int i = 0; i < this.size() ; i ++)
+
+
+            
+        // Element<T> k = this.getKopf();  // Startet beim Kopf der Liste
+
+        // // Durchläufe alle Elemente bis zum Ende der Liste
+        // while (k != null) {
+        //     size++;  // Erhöhe den Zähler um 1
+        //     k = k.getNext();  // Springe zum nächsten Element
+        // }
+        // return size;  // Gibt die Anzahl der Elemente zurück
+            
+        // // Ausgabe des befüllten Arrays
+        // return ausgabeObjectArray; 
         throw new UnsupportedOperationException("Unimplemented method 'toArray'");
     }
 
