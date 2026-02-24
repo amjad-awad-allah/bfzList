@@ -35,16 +35,15 @@ import java.util.ListIterator;
 
 // ✅️ boolean remove(Object o)                          Gruppe: Gruppe B
 
-// ❌ public boolean containsAll(Collection c)          Gruppe: ❓
 
-// ✅️  public boolean containsAll(Collection c)          Johannes, noch testen bitte
+// ✅️  public boolean containsAll(Collection c)          Johannes
 
 
 // ✅️ public boolean addAll(Collection c)               Gruppe: Lenur
 
 // ❌ public boolean addAll(int index, Collection c)    Gruppe: Lenur
 
-// ✅️  public boolean retainAll(Collection c) {          Johannes 
+// ✅️  public boolean retainAll(Collection c) {          Johannes
 
 // ✅️ clear()                                           Gruppe: André, Johannes
 
@@ -52,7 +51,7 @@ import java.util.ListIterator;
 
 // ⚠️ set(int index, Object element)                    Amjad
 
-// ⚠️ void add(int index, Object element)               Martin
+// ✅️ void add(int index, Object element)               Martin
 
 // ⚠️ T remove(int index)                               Gruppe: ❓ braucht testen
 
@@ -210,8 +209,14 @@ public class Liste<T> implements List<T>{
 
     @Override
     public boolean containsAll(Collection c) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'containsAll'");
+        boolean listeenthaeltuniqueElementeAusCollection = true;
+        for(Object o:c){
+            if(!contains(o)){
+                return false;
+            }
+        }
+        return true;
+
     }
 
     @Override
@@ -246,12 +251,16 @@ public class Liste<T> implements List<T>{
     public boolean retainAll(Collection c) { //nur elemente die auch in collection sind, sollen in der Liste bleiben //vergleiche mit getWert() von Objekt Element
         int listenGroesse = size();
         Element <T> node = getKopf();
-        Element <T> loeschnode = getKopf();
-        for(int i = 0; i <listenGroesse; i++){
+        for(int i = 0; i <listenGroesse; i ++){
             if(!c.contains(node.getWert())){
+<<<<<<< HEAD
+                
+                remove(node);
+=======
                 loeschnode = node;
                 node= node.getNext();
                 remove(loeschnode.getWert());
+>>>>>>> 1d23151b8342baeda4727fec4de58be7554ca589
             }else{
                 node= node.getNext();
             }   
@@ -278,9 +287,27 @@ public class Liste<T> implements List<T>{
     }
 
     @Override
-    public void add(int index, Object element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+    public void add(int index, T element) {
+
+        int size = size(); // instanziiert, damit die funktion nicht immer wieder aufgerufen wird
+        
+        if(index < 0 || index > size){
+            System.out.println("Index out of bounds"); // besser mit exceptions!
+        }
+        else if (index == 0){
+            kopf = new Element<>(element, kopf);
+        }
+        else if(index==size){
+            add(element);
+        }
+        else {
+            Element<T> node = getKopf();
+            for(int i = 0; i<index-1; i++){     // schleife iteriert über übergabe-index, NICHT size. 
+                node = node.getNext();          // man such also das Element VOR dem übergabe-Index
+            }
+            node.setNext(new Element<>(element, node.getNext()));  // einfügen des elements zwischen VOR und nach dem Index.
+        }
+        size++;
     }
 
     @Override
