@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class App{
+public class App {
 
     // Testmethode - gibt alle values aus der Liste an - Martin 2026-02-23 13:30
     public static <T> void ausgabeListe(Liste<T> list) {
@@ -50,7 +50,7 @@ public class App{
         System.out.println("Liste geändert: " + geaendert); // true
         System.out.println("Neue Größe: " + liste.size()); // 2 (B, D übrig)
 
-        //test add index
+        // test add index
         liste.add(1, "New 1");
         ausgabeListe(liste);
 
@@ -62,34 +62,36 @@ public class App{
         }
         System.out.println("\n---------------------------------");
 
-        //test boolean retainAll(Collection c)
+        // test boolean retainAll(Collection c)
         System.out.println("Test retainAll: ");
         Collection<String> c = new ArrayList<>();
-        Liste<String> testListe = new Liste<>("Banane"); //Kopfelement
+        Liste<String> testListe = new Liste<>("Banane"); // Kopfelement
         testListe.add("Banane");
         testListe.add("Apfel");
         testListe.add("Orange");
         c.add("Apfel");
-        c.add("Apfel"); 
+        c.add("Apfel");
         c.add("Mandarine");
         System.out.println("Wahrheitswert für Methode retainall: " + testListe.retainAll(c));
         ausgabeListe(testListe);
 
-
-
-        // test  boolean containsAll(Collection c) 
+        // test boolean containsAll(Collection c)
         Collection<String> collection2 = new ArrayList<>();
-        Liste<String> testListe2 = new Liste<>("Banane"); //Kopfelement
+        Liste<String> testListe2 = new Liste<>("Banane"); // Kopfelement
         testListe2.add("Apfel");
         testListe2.add("Orange");
         collection2.add("Apfel");
         collection2.add("Banane");
-        System.out.println("Die Liste enthält von jedem Unikat aus Collection einen gleichen Wert? : " + testListe2.containsAll(collection2)); //true
+        System.out.println("Die Liste enthält von jedem Unikat aus Collection einen gleichen Wert? : "
+                + testListe2.containsAll(collection2)); // true
         collection2.add("Mandarine");
-        System.out.println("Die Liste enthält von jedem Unikat aus Collection einen gleichen Wert? : " + testListe2.containsAll(collection2)); 
-        
+        System.out.println("Die Liste enthält von jedem Unikat aus Collection einen gleichen Wert? : "
+                + testListe2.containsAll(collection2));
 
-
+        // Test für subList
+        System.out.println("\nTest subList:");
+        Liste<String> subListe = liste.subList(1, 3); // Erstelle eine Sublist von Index 1 bis 2
+        ausgabeListe(subListe);
 
     }
 }
