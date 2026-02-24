@@ -67,7 +67,7 @@ import java.util.ListIterator;
 
 // ❌ ListIterator listIterator(int index)              Gruppe: ❓
 
-// ❌ List subList(int fromIndex, int toIndex)          Gruppe: ❓
+// ✅️ List subList(int fromIndex, int toIndex)          Gruppe: Marcel/ Lenur getestet
 
 // ------------------------------------------------------------------------ //
 
