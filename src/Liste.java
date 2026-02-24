@@ -24,9 +24,9 @@ import java.util.ListIterator;
 
 // ❌ public Iterator iterator()  //optional            Gruppe: ❓
 
-// ❌ Object[] toArray()                                Gruppe: ❓
+// ⚠️ Object[] toArray()                                Katharina
 
-// ❌ Object[] toArray(Object[] a)                      Gruppe: ❓
+// ⚠️ Object[] toArray(Object[] a)                      Katharina
 
 // ✅️ boolean add(Object e)                             Gruppe: Gruppe A
 
@@ -36,7 +36,7 @@ import java.util.ListIterator;
 
 // ✅️ public boolean addAll(Collection c)               Gruppe: Lenur
 
-// ❌ public boolean addAll(int index, Collection c)    Gruppe: Lenur
+// ✅️ public boolean addAll(int index, Collection c)    Gruppe: Lenur
 
 // ✅️  public boolean retainAll(Collection c) {          Johannes
 
@@ -52,13 +52,13 @@ import java.util.ListIterator;
 
 // ✅️ indexOf(Object o)                                 André
 
-// ❌ lastIndexOf(Object o)                             Gruppe: ❓
+// ✅️ lastIndexOf(Object o)                             André
 
 // ❌ listIterator()                                    Gruppe: ❓
 
 // ❌ ListIterator listIterator(int index)              Gruppe: ❓
 
-// ❌ List subList(int fromIndex, int toIndex)          Gruppe: ❓
+// ⚠️ List subList(int fromIndex, int toIndex)          Marcel
 
 // ------------------------------------------------------------------------ //
 
@@ -118,15 +118,23 @@ public class Liste<T> implements List<T> {
         throw new UnsupportedOperationException("Unimplemented method 'iterator'");
     }
 
+
+
+    // ---------------------------------------------------------------------------------------------//
+    // ---------------------------------------------------------------------------------------------//
+
+
+
     @Override
     public Object[] toArray() {
-        // // Anlegen des Array der ausgegeben werden soll:
-        // Object[] ausgabeObjectArray;
 
-        // // Casten des
+        // Herausfinden der Länge der Liste
+        int laengeListe = this.size();
 
-        // for (int i = 0; i < this.size() ; i ++)
+        // Anlegen der Variablen der ausgegeben werden soll:
+        Object[] ausgabeObjectArray = new Object[laengeListe];
 
+<<<<<<< HEAD
         // Element<T> k = this.getKopf(); // Startet beim Kopf der Liste
 
         // // Durchläufe alle Elemente bis zum Ende der Liste
@@ -139,6 +147,28 @@ public class Liste<T> implements List<T> {
         // // Ausgabe des befüllten Arrays
         // return ausgabeObjectArray;
         throw new UnsupportedOperationException("Unimplemented method 'toArray'");
+=======
+        Element<T> k = this.getKopf(); // Startet beim Kopf der Liste
+
+        int counter = 0;
+
+        // Beschreiben des Arrays mit den Werten der Liste:
+
+        while (k != null) {
+
+            ausgabeObjectArray[counter] = k.getWert();
+
+            k = k.getNext();
+
+            counter++;
+
+        }
+
+        // Ausgabe des befüllten Arrays
+        return ausgabeObjectArray;
+
+        // throw new UnsupportedOperationException("Unimplemented method 'toArray'");
+>>>>>>> e3d268d762efa0c069d0bf810a9bd831dabf4e4b
     }
 
     @Override
@@ -147,6 +177,11 @@ public class Liste<T> implements List<T> {
         throw new UnsupportedOperationException("Unimplemented method 'toArray'");
     }
 
+
+
+    // ---------------------------------------------------------------------------------------------//
+    // ---------------------------------------------------------------------------------------------//
+    
     @Override
     public boolean add(T e) { // hier musste tatsächlich T e rein, da mit Object e keine new Element<> möglich
                               // wäre. Typesafety wäre dann nicht gegeben.
@@ -228,7 +263,17 @@ public class Liste<T> implements List<T> {
 
     @Override
     public boolean addAll(int index, Collection c) {
+<<<<<<< HEAD
 
+=======
+        boolean changed = false;
+        for (Object o : c) {
+            add(index, (T) o);  // Füge jedes Element der Collection an der angegebenen Position hinzu
+            changed = true;
+            index++;  // Erhöhe den Index für das nächste Element
+        }
+        return changed;
+>>>>>>> e3d268d762efa0c069d0bf810a9bd831dabf4e4b
         // throw new UnsupportedOperationException("Unimplemented method 'addAll'");
     }
 
@@ -247,6 +292,7 @@ public class Liste<T> implements List<T> {
     public boolean retainAll(Collection c) { // nur elemente die auch in collection sind, sollen in der Liste bleiben
                                              // //vergleiche mit getWert() von Objekt Element
         int listenGroesse = size();
+<<<<<<< HEAD
         Element<T> node = getKopf();
         Element<T> loeschnode = getKopf();
         for (int i = 0; i < listenGroesse; i++) {
@@ -258,6 +304,16 @@ public class Liste<T> implements List<T> {
             } else {
                 node = node.getNext();
             }
+=======
+        Element <T> node = getKopf();
+        for(int i = 0; i <listenGroesse; i ++){
+            if(!c.contains(node.getWert())){
+                
+                remove(node);
+            }else{
+                node= node.getNext();
+            }   
+>>>>>>> e3d268d762efa0c069d0bf810a9bd831dabf4e4b
 
         }
         return true;
