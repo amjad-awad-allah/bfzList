@@ -46,7 +46,7 @@ import java.util.ListIterator;
 
 // ✅️ public boolean addAll(Collection c)               Gruppe: Lenur
 
-// ❌ public boolean addAll(int index, Collection c)    Gruppe: Lenur
+// ✅️ public boolean addAll(int index, Collection c)    Gruppe: Lenur
 
 // ✅️  public boolean retainAll(Collection c) {          Gruppe: Johannes, noch testen
 
@@ -243,7 +243,13 @@ public class Liste<T> implements List<T>{
 
     @Override
     public boolean addAll(int index, Collection c) {
-        
+        boolean changed = false;
+        for (Object o : c) {
+            add(index, (T) o);  // Füge jedes Element der Collection an der angegebenen Position hinzu
+            changed = true;
+            index++;  // Erhöhe den Index für das nächste Element
+        }
+        return changed;
         // throw new UnsupportedOperationException("Unimplemented method 'addAll'");
     }
 

@@ -41,7 +41,6 @@ public class App{
         System.out.println("Changed with index: " + changed2);
         ausgabeListe(liste);
 
-
         // Rufe removeAll auf
         ArrayList<String> zuLoeschen = new ArrayList<>();
         zuLoeschen.add("Apfel");
@@ -51,21 +50,17 @@ public class App{
         System.out.println("Liste geändert: " + geaendert); // true
         System.out.println("Neue Größe: " + liste.size()); // 2 (B, D übrig)
 
-
         //test add index
         liste.add(1, "New 1");
         ausgabeListe(liste);
 
-
         // test Object[] toArray()
-
         System.out.println("\n---------------------------------");
         System.out.println("Test toArray()");
         for (Object ausgabe : coll.toArray()) {
             System.out.println(ausgabe);
         }
         System.out.println("\n---------------------------------");
-
 
         //test boolean retainAll(Collection c)
         System.out.println("Test retainAll: ");
@@ -79,15 +74,6 @@ public class App{
         c.add("Mandarine");
         System.out.println("Wahrheitswert für Methode retainall: " + testListe.retainAll(c));
         ausgabeListe(testListe);
-
-
-
-
-
-
-
-
-
 
 
 
