@@ -27,7 +27,11 @@ import java.util.ListIterator;
 
 // ❌ public Iterator iterator()  //optional            Gruppe: ❓
 
+<<<<<<< HEAD
 // ❌ Object[] toArray()                                Gruppe: ❓
+=======
+// ⚠️✅️ Object[] toArray()                                Katharina , braucht 2ten Tester
+>>>>>>> f418c8a832c8a806ef67dc9f545ae6a9cd10ab3f
 
 // ❌ Object[] toArray(Object[] a)                      Gruppe: ❓
 
@@ -35,9 +39,15 @@ import java.util.ListIterator;
 
 // ✅️ boolean remove(Object o)                          Gruppe: Gruppe B
 
+<<<<<<< HEAD
 // ❌ public boolean containsAll(Collection c)          Gruppe: ❓
 
 // ✅️  public boolean containsAll(Collection c)          Johannes, noch testen bitte
+
+=======
+
+// ✅️  public boolean containsAll(Collection c)          Johannes
+>>>>>>> f418c8a832c8a806ef67dc9f545ae6a9cd10ab3f
 
 
 // ✅️ public boolean addAll(Collection c)               Gruppe: Lenur
@@ -126,8 +136,38 @@ public class Liste<T> implements List<T>{
 
     @Override
     public Object[] toArray() {
+<<<<<<< HEAD
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'toArray'");
+=======
+
+        // Herausfinden der Länge der Liste
+        int laengeListe = this.size();
+
+        // Anlegen der Variablen der ausgegeben werden soll:
+        Object[] ausgabeObjectArray = new Object[laengeListe];
+
+        Element<T> k = this.getKopf(); // Startet beim Kopf der Liste
+
+        int counter = 0;
+
+        // Beschreiben des Arrays mit den Werten der Liste:
+
+        while (k != null) {
+
+            ausgabeObjectArray[counter] = k.getWert();
+
+            k = k.getNext();
+
+            counter++;
+
+        }
+
+        // Ausgabe des befüllten Arrays
+        return ausgabeObjectArray;
+
+        // throw new UnsupportedOperationException("Unimplemented method 'toArray'");
+>>>>>>> f418c8a832c8a806ef67dc9f545ae6a9cd10ab3f
     }
 
     @Override
@@ -191,8 +231,19 @@ public class Liste<T> implements List<T>{
 
     @Override
     public boolean containsAll(Collection c) {
+<<<<<<< HEAD
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'containsAll'");
+=======
+        boolean listeenthaeltuniqueElementeAusCollection = true;
+        for(Object o:c){
+            if(!contains(o)){
+                return false;
+            }
+        }
+        return true;
+
+>>>>>>> f418c8a832c8a806ef67dc9f545ae6a9cd10ab3f
     }
 
     @Override
