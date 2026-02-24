@@ -416,7 +416,10 @@ public class Liste<T> implements List<T>{
 
     @Override
     public Liste<T> subList(int fromIndex, int toIndex) {
-        
+        if (fromIndex < 0 || toIndex > size() || fromIndex > toIndex) { // Überprüfe, ob die Indizes gültig sind
+            // System.out.println("Invalid fromIndex or toIndex");
+            throw new IndexOutOfBoundsException("Invalid fromIndex or toIndex");
+        }
         Element<T> aktuell = kopf; // Das erste Element 
 
         for (int i = 0; i < fromIndex; i++) { // Solange i kleiner als der Startindex ist
@@ -424,7 +427,6 @@ public class Liste<T> implements List<T>{
         }
 
         Liste<T> sublist = new Liste<T>(aktuell.getWert()); // Subliste mit Kopfwert der Indexposition von fromIndex
-
         aktuell = aktuell.getNext(); // Wir gehen eine Indexposition weiter und zeigen auf das nächste Element nach fromIndex  
 
         for (int i = fromIndex; i < toIndex; i++) { // Solange i kleiner/gleich der toIndex Position ist,
@@ -432,9 +434,6 @@ public class Liste<T> implements List<T>{
             aktuell = aktuell.getNext();
         }
 
-        
         return sublist; // Rüchgabe der fertigen Sublist
-
-
     }
 }
