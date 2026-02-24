@@ -36,7 +36,6 @@ import java.util.ListIterator;
 
 // ✅️ boolean remove(Object o)                          Gruppe: Gruppe B
 
-// ❌ public boolean containsAll(Collection c)          Gruppe: ❓
 
 // ✅️  public boolean containsAll(Collection c)          Johannes, noch testen bitte
 
@@ -58,7 +57,7 @@ import java.util.ListIterator;
 
 // ✅️ void add(int index, Object element)               Martin
 
-// ⚠️ T remove(int index)                               Johannes braucht testen
+// ✅️ T remove(int index)                               Johannes 
 
 // ✅️ indexOf(Object o)                                 André
 
