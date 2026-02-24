@@ -136,10 +136,6 @@ public class Liste<T> implements List<T>{
 
     @Override
     public Object[] toArray() {
-<<<<<<< HEAD
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'toArray'");
-=======
 
         // Herausfinden der Länge der Liste
         int laengeListe = this.size();
@@ -167,7 +163,6 @@ public class Liste<T> implements List<T>{
         return ausgabeObjectArray;
 
         // throw new UnsupportedOperationException("Unimplemented method 'toArray'");
->>>>>>> f418c8a832c8a806ef67dc9f545ae6a9cd10ab3f
     }
 
     @Override
@@ -231,10 +226,6 @@ public class Liste<T> implements List<T>{
 
     @Override
     public boolean containsAll(Collection c) {
-<<<<<<< HEAD
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'containsAll'");
-=======
         boolean listeenthaeltuniqueElementeAusCollection = true;
         for(Object o:c){
             if(!contains(o)){
@@ -243,7 +234,6 @@ public class Liste<T> implements List<T>{
         }
         return true;
 
->>>>>>> f418c8a832c8a806ef67dc9f545ae6a9cd10ab3f
     }
 
     @Override
