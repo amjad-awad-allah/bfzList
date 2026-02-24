@@ -226,7 +226,7 @@ public class Liste<T> implements List<T>{
     @Override
     public boolean retainAll(Collection c) { //nur elemente die auch in collection sind, sollen in der Liste bleiben //vergleiche mit getWert() von Objekt Element
         int listenGroesse = size();
-        Element <T> node = kopf;
+        Element <T> node = getKopf();
         for(int i = 0; i <listenGroesse; i ++){
             if(!c.contains(node.getWert())){
                 
