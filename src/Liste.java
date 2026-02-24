@@ -258,23 +258,26 @@ public class Liste<T> implements List<T>{
 
     @Override
     public void add(int index, T element) {
+
+        int size = size(); // instanziiert, damit die funktion nicht immer wieder aufgerufen wird
         
-        if (index == 0){
-            kopf = new Element<>(element, kopf);
-        }
-        else if(index==size()){
-            add(element);
-        }
-        else if(index < 0 || index > size()){
+        if(index < 0 || index > size){
             System.out.println("Index out of bounds"); // besser mit exceptions!
         }
+        else if (index == 0){
+            kopf = new Element<>(element, kopf);
+        }
+        else if(index==size){
+            add(element);
+        }
         else {
-            Element<T> node = kopf.getNext();
+            Element<T> node = getKopf();
             for(int i = 0; i<index-1; i++){     // schleife iteriert über übergabe-index, NICHT size. 
                 node = node.getNext();          // man such also das Element VOR dem übergabe-Index
             }
             node.setNext(new Element<>(element, node.getNext()));  // einfügen des elements zwischen VOR und nach dem Index.
         }
+        size++;
     }
 
     @Override
