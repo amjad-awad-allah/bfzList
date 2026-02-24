@@ -56,8 +56,14 @@ public class App{
 
         // test Object[] toArray()
         System.out.println("\n---------------------------------");
+
+        Liste<Object> testListeXY = new Liste<>("bananer"); //Kopfelement
+        testListeXY.add("Erdbeere");
+        testListeXY.add("Erdbeere");
+        testListeXY.add(1,1);
         System.out.println("Test toArray()");
-        for (Object ausgabe : coll.toArray()) {
+
+        for (Object ausgabe : testListeXY.toArray()) {
             System.out.println(ausgabe);
         }
         System.out.println("\n---------------------------------");

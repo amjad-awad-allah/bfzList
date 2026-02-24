@@ -27,7 +27,7 @@ import java.util.ListIterator;
 
 // ❌ public Iterator iterator()  //optional            Gruppe: ❓
 
-// ⚠️✅️ Object[] toArray()                             Katharina , braucht 2ten Tester
+// ✅️ Object[] toArray()                             Katharina 
 
 // ⚠️ Object[] toArray(Object[] a)                      Katharina
 
