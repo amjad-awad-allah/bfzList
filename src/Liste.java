@@ -27,9 +27,9 @@ import java.util.ListIterator;
 
 // ❌ public Iterator iterator()  //optional            Gruppe: ❓
 
-// ❌ Object[] toArray()                                Gruppe: ❓
+// ⚠️ Object[] toArray()                                Katharina
 
-// ❌ Object[] toArray(Object[] a)                      Gruppe: ❓
+// ⚠️ Object[] toArray(Object[] a)                      Katharina
 
 // ✅️ boolean add(Object e)                             Gruppe: Gruppe A
 
@@ -58,13 +58,13 @@ import java.util.ListIterator;
 
 // ✅️ indexOf(Object o)                                 André
 
-// ❌ lastIndexOf(Object o)                             Gruppe: ❓
+// ✅️ lastIndexOf(Object o)                             André
 
 // ❌ listIterator()                                    Gruppe: ❓
 
 // ❌ ListIterator listIterator(int index)              Gruppe: ❓
 
-// ❌ List subList(int fromIndex, int toIndex)          Gruppe: ❓
+// ⚠️ List subList(int fromIndex, int toIndex)          Marcel
 
 // ------------------------------------------------------------------------ //
 
