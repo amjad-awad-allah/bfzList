@@ -212,17 +212,17 @@ public class Liste<T> implements List<T>{
         }
         
         // Das zu löschende Element ist nicht der Kopf
-        Element<T> elementdavor = k;  // Element vor dem zu löschenden
+        Element<T> elementDavor = k;  // Element vor dem zu löschenden
         k = k.getNext();  // Aktuelles Element (das zu prüfende)
 
         // Durchlaufe die restliche Liste
         for (int i = 1; i < this.size(); i++) {
             if (o.equals(k.getWert())) {  // Gefunden!
                 // Verbinde elementdavor direkt mit dem Element nach k (überspringe k)
-                elementdavor.setNext(k.getNext());
+                elementDavor.setNext(k.getNext());
                 return true;
             }
-            elementdavor = elementdavor.getNext();  // Verschiebe "davor" ein Element weiter
+            elementDavor = elementDavor.getNext();  // Verschiebe "davor" ein Element weiter
             k = k.getNext();  // Verschiebe aktuelles Element ein Element weiter
         }
         return false;
@@ -373,14 +373,14 @@ public class Liste<T> implements List<T>{
            
         }else{
             Element<T> node = this.getKopf().getNext();  // Starte beim Kopf // diese variable wird "gelöscht"
-            Element<T> nodezwischElement = this.getKopf(); // diese variable wird den zeiger von der nodevariable übernehmen
+            Element<T> nodeZwischenElement = this.getKopf(); // diese variable wird den zeiger von der nodevariable übernehmen
             int zaehler= 1;
             while(zaehler < index){
                 node = node.getNext();
-                nodezwischElement = nodezwischElement.getNext();
+                nodeZwischenElement = nodeZwischenElement.getNext();
                 zaehler++;
             }
-            nodezwischElement.setNext(node.getNext());
+            nodeZwischenElement.setNext(node.getNext());
             return node.getWert();
         }
  
