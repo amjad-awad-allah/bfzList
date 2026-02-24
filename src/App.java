@@ -44,10 +44,27 @@ public class App{
         System.out.println("Liste geändert: " + geaendert); // true
         System.out.println("Neue Größe: " + liste.size()); // 2 (B, D übrig)
 
+<<<<<<< HEAD
 
         //test add index
         liste.add(1, "New 1");
         ausgabeListe(liste);
+=======
+        //test boolean retainAll(Collection c)
+        System.out.println("Test retainAll: ");
+        Collection<String> c = new ArrayList<>();
+        Liste<String> testListe = new Liste<>("Banane"); //Kopfelement
+        testListe.add("Banane");
+        testListe.add("Apfel");
+        testListe.add("Orange");
+        c.add("Apfel");
+        c.add("Apfel"); 
+        c.add("Mandarine");
+        System.out.println("Wahrheitswert für Methode retainall: " + testListe.retainAll(c));
+        ausgabeListe(testListe);
+
+    
+>>>>>>> eb006d383121c931c4512065ce1931cc43e25af3
 
     }
 }
