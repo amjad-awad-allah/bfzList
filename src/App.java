@@ -57,6 +57,18 @@ public class App{
         System.out.println("Wahrheitswert für Methode retainall: " + testListe.retainAll(c));
         ausgabeListe(testListe);
 
+        // test  boolean containsAll(Collection c) 
+        Collection<String> collection2 = new ArrayList<>();
+        Liste<String> testListe2 = new Liste<>("Banane"); //Kopfelement
+        testListe2.add("Apfel");
+        testListe2.add("Orange");
+        collection2.add("Apfel");
+        collection2.add("Banane");
+        System.out.println("Die Liste enthält von jedem Unikat aus Collection einen gleichen Wert? : " + testListe2.containsAll(collection2)); //true
+        collection2.add("Mandarine");
+        System.out.println("Die Liste enthält von jedem Unikat aus Collection einen gleichen Wert? : " + testListe2.containsAll(collection2)); 
+        
+
     
 
     }

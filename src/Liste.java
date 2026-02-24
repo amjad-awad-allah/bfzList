@@ -35,16 +35,15 @@ import java.util.ListIterator;
 
 // ✅️ boolean remove(Object o)                          Gruppe: Gruppe B
 
-// ❌ public boolean containsAll(Collection c)          Gruppe: ❓
 
-// ✅️  public boolean containsAll(Collection c)          Johannes, noch testen bitte
+// ✅️  public boolean containsAll(Collection c)          Johannes
 
 
 // ✅️ public boolean addAll(Collection c)               Gruppe: Lenur
 
 // ❌ public boolean addAll(int index, Collection c)    Gruppe: Lenur
 
-// ✅️  public boolean retainAll(Collection c) {          Johannes 
+// ✅️  public boolean retainAll(Collection c) {          Johannes
 
 // ✅️ clear()                                           Gruppe: André, Johannes
 
@@ -191,8 +190,14 @@ public class Liste<T> implements List<T>{
 
     @Override
     public boolean containsAll(Collection c) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'containsAll'");
+        boolean listeenthaeltuniqueElementeAusCollection = true;
+        for(Object o:c){
+            if(!contains(o)){
+                return false;
+            }
+        }
+        return true;
+
     }
 
     @Override
