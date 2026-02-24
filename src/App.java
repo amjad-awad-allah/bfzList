@@ -88,10 +88,7 @@ public class App{
         collection2.add("Mandarine");
         System.out.println("Die Liste enthält von jedem Unikat aus Collection einen gleichen Wert? : " + testListe2.containsAll(collection2)); 
         
-        // Test für subList
-        System.out.println("\nTest subList:");
-        Liste<String> subListe = liste.subList(1, 3); // Erstelle eine Sublist von Index 1 bis 2
-        ausgabeListe(subListe);
+
 
 
     }
