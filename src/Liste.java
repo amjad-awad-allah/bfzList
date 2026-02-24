@@ -44,7 +44,7 @@ import java.util.ListIterator;
 
 // ❌ public boolean addAll(int index, Collection c)    Gruppe: Lenur
 
-// ✅️  public boolean retainAll(Collection c) {          Gruppe: Johannes, noch testen
+// ✅️  public boolean retainAll(Collection c) {          Johannes 
 
 // ✅️ clear()                                           Gruppe: André, Johannes
 
@@ -232,8 +232,7 @@ public class Liste<T> implements List<T>{
             if(!c.contains(node.getWert())){
                 loeschnode = node;
                 node= node.getNext();
-              
-                System.out.println("Wurde removed?: "+   remove(loeschnode));
+                remove(loeschnode.getWert());
             }else{
                 node= node.getNext();
             }   
