@@ -376,7 +376,7 @@ public class Liste<T> implements List<T> {
 
         } else {
             Element<T> node = this.getKopf().getNext(); // Starte beim Kopf // diese variable wird "gelöscht"
-            Element<T> nodezwischElement = this.getKopf(); // diese variable wird den zeiger von der nodevariable
+            Element<T> nodeZwischenElement = this.getKopf(); // diese variable wird den zeiger von der nodevariable
                                                            // übernehmen
             int zaehler = 1;
             while (zaehler < index) {

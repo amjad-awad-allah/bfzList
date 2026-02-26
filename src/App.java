@@ -113,7 +113,7 @@ public class App {
         String[] testArrayLang = { "Hai", "Thunfisch","Moräne"};
 
 
-        Object[] kurzZuKurz  = new Object[4];
+        Object[] kurzZuKurz;
         kurzZuKurz =  testListekurz.toArray(testArrayKurz); 
 
         Object[] LangZuKurz  = new Object[4];
