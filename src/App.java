@@ -112,15 +112,11 @@ public class App {
         String[] testArrayKurz = {"Barsch","Hecht"};
         String[] testArrayLang = { "Hai", "Thunfisch","Moräne"};
 
+        Object[] kurzZuKurz  = testListekurz.toArray(testArrayKurz); 
 
-        Object[] kurzZuKurz  = new Object[4];
-        kurzZuKurz =  testListekurz.toArray(testArrayKurz); 
+        Object[] LangZuKurz  = testListeLang.toArray(testArrayKurz); 
 
-        Object[] LangZuKurz  = new Object[4];
-        LangZuKurz =  testListeLang.toArray(testArrayKurz); 
-
-        Object[] KurzZuLang  = new Object[3];
-        KurzZuLang =  testListekurz.toArray(testArrayLang); 
+        Object[] KurzZuLang =  testListekurz.toArray(testArrayLang); 
 
         System.out.println("\n---------------------------------\n");
         System.out.println("Kurz in Lang:");
