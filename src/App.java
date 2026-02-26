@@ -100,7 +100,7 @@ public class App {
         ausgabeListe(subListe);
 
 
-          // test Object[] toArray(Object[] a)
+        // test Object[] toArray(Object[] a)
         Liste<String> testListekurz = new Liste<>("Pferd"); 
         testListekurz.add("Kuh");
 
@@ -110,7 +110,7 @@ public class App {
         testListeLang.add("Ziege");
 
         String[] testArrayKurz = {"Barsch","Hecht"};
-        String[] testArrayLang = { "Hai", "Thunfisch","Moräne"};
+        String[] testArrayLang = { "Hai", "Thunfisch","Moräne","Goldfisch"};
 
         Object[] kurzZuKurz  = testListekurz.toArray(testArrayKurz); 
 
@@ -128,9 +128,7 @@ public class App {
             System.out.println(ausgabe);
         }
                 System.out.println("Lang in Kurz:");
-        for (Object ausgabe : LangZuKurz
-
-        ) {
+        for (Object ausgabe : LangZuKurz) {
             System.out.println(ausgabe);
         }
         System.out.println("\n---------------------------------\n");

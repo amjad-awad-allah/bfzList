@@ -154,22 +154,21 @@ public class Liste<T> implements List<T> {
     // Objectarray mit der Länge des größeren Arrays anlegen
     int limit = Math.max(a.length, this.size());
 
-    // // alle Elemente mit null befüllen. Ginge schöner aber ¯\_(ツ)_/¯
+
     Object[] ausgabeObjectArray = new Object[limit];
-    ausgabeObjectArray[limit-1]= null;
+    
 
     Element<T> aktuell = this.kopf;
     // forloop die über die Länge der Liste geht
-    for (int i = 0; i < this.size(); i++) {
-        ausgabeObjectArray[i]= aktuell.getWert();
-    // Schritt nach vorne
-    aktuell = aktuell.getNext();
+    for (int i = 0; i < limit; i++) {
+        if (aktuell!=null){
+            ausgabeObjectArray[i]= aktuell.getWert();
+            aktuell = aktuell.getNext();
+        }
+        else {
+            ausgabeObjectArray[i] = null;
+        }
     }
-
-    if (ausgabeObjectArray.length > limit) {
-        ausgabeObjectArray[limit] = null;
-    }
-        // Ausgabe des befüllten Arrays
         return ausgabeObjectArray;
     }
     // ---------------------------------------------!--------------------------------------------------
