@@ -232,7 +232,7 @@ public class Liste<T> implements List<T> {
         }
 
         // Das zu löschende Element ist nicht der Kopf
-        Element<T> elementdavor = k; // Element vor dem zu löschenden
+        Element<T> elementDavor = k; // Element vor dem zu löschenden
         k = k.getNext(); // Aktuelles Element (das zu prüfende)
 
         // Durchlaufe die restliche Liste
@@ -242,7 +242,7 @@ public class Liste<T> implements List<T> {
                 elementDavor.setNext(k.getNext());
                 return true;
             }
-            elementdavor = elementdavor.getNext(); // Verschiebe "davor" ein Element weiter
+            elementDavor = elementDavor.getNext(); // Verschiebe "davor" ein Element weiter
             k = k.getNext(); // Verschiebe aktuelles Element ein Element weiter
         }
         return false;
