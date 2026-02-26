@@ -5,11 +5,8 @@ import java.util.ListIterator;
 
 // ---------------------------------------------------------//
 
-
-
 // Gruppe A: Martin, Lenur, Marcel, Johannes, Amjad = contains Methode
 // Gruppe B: Justyn, Aykut, André, Katharina = size und empty methoden
- 
 
 // ✅️ = Fertig: getestet & funktioniert
 // ⚠️ = In Bearbeitung von
@@ -45,9 +42,9 @@ import java.util.ListIterator;
 
 // ✅️ clear()                                           Gruppe: André, Johannes
 
-// ✅️ get(int index)                                    Amjad, Martin
+// ✅️ get(int index)                                    Amjad, Martin,Edited by Amjad 
 
-// ✅️ set(int index, Object element)                    Amjad, Martin
+// ✅️ set(int index, Object element)                    Amjad, Martin,Edited by Amjad 
 
 // ✅️ void add(int index, Object element)               Martin
 
@@ -65,11 +62,11 @@ import java.util.ListIterator;
 
 // ------------------------------------------------------------------------ //
 
-public class Liste<T> implements List<T>{
+public class Liste<T> implements List<T> {
     private Element<T> kopf;
 
-    public Liste(T wert){
-        this.kopf = new Element<>(wert, null); 
+    public Liste(T wert) {
+        this.kopf = new Element<>(wert, null);
     }
 
     public Element<T> getKopf() {
@@ -81,38 +78,38 @@ public class Liste<T> implements List<T>{
     }
 
     @Override
-    public int size() {   // 
-        int size = 0;  // Zähler für die Anzahl der Elemente
-        Element<T> k = this.getKopf();  // Startet beim Kopf der Liste
+    public int size() { //
+        int size = 0; // Zähler für die Anzahl der Elemente
+        Element<T> k = this.getKopf(); // Startet beim Kopf der Liste
 
         // Durchläufe alle Elemente bis zum Ende der Liste
         while (k != null) {
-            size++;  // Erhöhe den Zähler um 1
-            k = k.getNext();  // Springe zum nächsten Element
+            size++; // Erhöhe den Zähler um 1
+            k = k.getNext(); // Springe zum nächsten Element
         }
-        return size;  // Gibt die Anzahl der Elemente zurück
-       
+        return size; // Gibt die Anzahl der Elemente zurück
+
     }
 
     @Override
     public boolean isEmpty() {
         return kopf == null;
-        //throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        // throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
     }
 
     @Override
     public boolean contains(Object o) {
-        Element<T> k = this.getKopf();  // Starte beim Kopf
+        Element<T> k = this.getKopf(); // Starte beim Kopf
 
         // Durchläufe alle Elemente
         while (k != null) {
-            if (o.equals(k.getWert())) {  // Vergleiche mit aktuellem Element
-                return true;  // Gefunden: gebe true zurück
+            if (o.equals(k.getWert())) { // Vergleiche mit aktuellem Element
+                return true; // Gefunden: gebe true zurück
             }
-            k = k.getNext();  // Gehe zum nächsten Element
+            k = k.getNext(); // Gehe zum nächsten Element
         }
         return false;
-        //throw new UnsupportedOperationException("Unimplemented method 'contains'");
+        // throw new UnsupportedOperationException("Unimplemented method 'contains'");
     }
 
     @Override
@@ -152,132 +149,101 @@ public class Liste<T> implements List<T>{
         // throw new UnsupportedOperationException("Unimplemented method 'toArray'");
     }
 
-//--------------------------------------------- ! ------------------------------------------------ //
-@Override
+    // -------------------@Override
     public Object[] toArray(Object[] a) {
-    //Element vom Typ der Liste wird mit dem Wert des Kopfes instanziiert
-    // Wir fangen also am anfang der Liste an
-       Element<T> aktuell = kopf;
-    
-    // Ist die Liste auf der wir arbeiten (this) oder das eingegebene array größer?
-    // ein integer Limit wird mit der Größe des Größeren instanziiert
-    // wir wollen ja keinen zu kleinen Array und wir wollen nicht über den Rand des Arrays hinausschreiben
-    int limit = this.size();
-    if (a.length < limit) {
-        limit = a.length; // Wenn das Array zu klein ist, füllen wir nur das, was geht
-    }
+    // Objectarray mit der Länge des größeren Arrays anlegen
+    int limit = Math.max(a.length, this.size());
 
+    // // alle Elemente mit null befüllen. Ginge schöner aber ¯\_(ツ)_/¯
+    Object[] ausgabeObjectArray = new Object[limit];
+    ausgabeObjectArray[limit-1]= null;
+
+    Element<T> aktuell = this.kopf;
     // forloop die über die Länge der Liste geht
-    for (int i = 0; i < limit; i++) {
-
-    // Platz für Platz wird das a array mit den Werten der diesigen Liste beschrieben.
-    // T ist dabei der generische Wert den Wirt der Liste eingeben.
-    // Mit den Klammern casten wird, dh wir sorgen dafür daass es dieser Typ wird
-
-    a[i] = (T) aktuell.getWert(); 
+    for (int i = 0; i < this.size(); i++) {
+        ausgabeObjectArray[i]= aktuell.getWert();
     // Schritt nach vorne
     aktuell = aktuell.getNext();
     }
-//     // 4. Wir geben das befüllte Array zurück
-     return a;
-        // TODO Auto-generated method stub
-// throw new UnsupportedOperationException("Unimplemented method 'toArray'");
+
+    if (ausgabeObjectArray.length > limit) {
+        ausgabeObjectArray[limit] = null;
     }
-
-        // ------------- //
-// code ref
-// public <E> E[] toArray(E[] a) {
-//     // 1. Wir starten ganz vorne an der Liste
-//     Element<T> aktuell = kopf;
-//     // 2. Wir schauen, was kleiner ist: Die Liste oder das Array?
-//     // Wir wollen ja nicht über den Rand des Arrays hinausschreiben!
-//     int limit = size();
-//     if (a.length < limit) {
-//         limit = a.length; // Wenn das Array zu klein ist, füllen wir nur das, was geht
-//     }
-//     // 3. Wir füllen das Array Platz für Platz
-//     for (int i = 0; i < limit; i++) {
-//         // (E) ist wie ein Etikett: "Liebes Programm, behhandle diesen Wert als Typ E"
-//         a[i] = (E) aktuell.getWert(); 
-//         // Unser bekannter Schritt nach vorne
-//         aktuell = aktuell.getNext();
-//     }
-//     // 4. Wir geben das befüllte Array zurück
-//     return a;
-// }
-
-
-
-        
-
-// ---------------------------------------------!-------------------------------------------------- //
+        // Ausgabe des befüllten Arrays
+        return ausgabeObjectArray;
+    }
+    // ---------------------------------------------!--------------------------------------------------
+    // //
 
     @Override
-    public boolean add(T e) { // hier musste tatsächlich T e rein, da mit Object e keine new Element<> möglich wäre. Typesafety wäre dann nicht gegeben.
+    public boolean add(T e) { // hier musste tatsächlich T e rein, da mit Object e keine new Element<> möglich
+                              // wäre. Typesafety wäre dann nicht gegeben.
         Element<T> newE = new Element<>(e, null);
         Element<T> node = getKopf();
-            if (node.getWert() == null){    // überprüfe zunächst ob der Kopf leer ist. Ohne würde ein null an erster Stelle übersprungen werden
-                node.setWert(newE.getWert());
+        if (node.getWert() == null) { // überprüfe zunächst ob der Kopf leer ist. Ohne würde ein null an erster Stelle
+                                      // übersprungen werden
+            node.setWert(newE.getWert());
+            return true;
+        }
+        while (node != null) { // suche bis das nächste Element Leer ist, dann wird am Ende der Liste eine
+                               // Element hinzugefügt
+            if (node.getNext() == null) {
+                node.setNext(newE);
                 return true;
             }
-            while (node != null) {      // suche bis das nächste Element Leer ist, dann wird am Ende der Liste eine Element hinzugefügt
-                if(node.getNext()==null){
-                    node.setNext(newE);
-                    return true;
-                }
-                node = node.getNext();
-            }
-            return true;
+            node = node.getNext();
+        }
+        return true;
     }
     // --------------------------------------------
-    //  Bessere Schreibweise für boolean add(T e): By Martin
+    // Bessere Schreibweise für boolean add(T e): By Martin
     // --------------------------------------------
     //
     // public boolean add(T e) {
-    //         if (kopf == null){
-    //             kopf = new Element<>(e, null);
-    //             return true;
-    //         }
-    //         Element <T> node = this.getKopf();
-    //         while (node.getNext() != null) {
-    //             node = node.getNext();
-    //         }
-    //         node.setNext(new Element<>(e, null));
-    //         return true;
+    // if (kopf == null){
+    // kopf = new Element<>(e, null);
+    // return true;
+    // }
+    // Element <T> node = this.getKopf();
+    // while (node.getNext() != null) {
+    // node = node.getNext();
+    // }
+    // node.setNext(new Element<>(e, null));
+    // return true;
     // }
     // --------------------------------------------
 
     @Override
     public boolean remove(Object o) {
-         if (!contains(o)) {  // Überprüfe zuerst, ob das Objekt existiert
+        if (!contains(o)) { // Überprüfe zuerst, ob das Objekt existiert
             return false;
         }
-        
-        Element<T> k = this.getKopf();  // Starte beim Kopf
+
+        Element<T> k = this.getKopf(); // Starte beim Kopf
 
         // Spezialfall: Das zu löschende Element ist der Kopf
         if (o.equals(k.getWert())) {
             if (size() > 1) {
-                setKopf(k.getNext());  // Setze neuen Kopf auf nächstes Element
+                setKopf(k.getNext()); // Setze neuen Kopf auf nächstes Element
             } else {
-                setKopf(null);  // Wenn nur ein Element, setze Kopf auf null
+                setKopf(null); // Wenn nur ein Element, setze Kopf auf null
             }
             return true;
         }
-        
+
         // Das zu löschende Element ist nicht der Kopf
-        Element<T> elementDavor = k;  // Element vor dem zu löschenden
-        k = k.getNext();  // Aktuelles Element (das zu prüfende)
+        Element<T> elementdavor = k; // Element vor dem zu löschenden
+        k = k.getNext(); // Aktuelles Element (das zu prüfende)
 
         // Durchlaufe die restliche Liste
         for (int i = 1; i < this.size(); i++) {
-            if (o.equals(k.getWert())) {  // Gefunden!
+            if (o.equals(k.getWert())) { // Gefunden!
                 // Verbinde elementdavor direkt mit dem Element nach k (überspringe k)
                 elementDavor.setNext(k.getNext());
                 return true;
             }
-            elementDavor = elementDavor.getNext();  // Verschiebe "davor" ein Element weiter
-            k = k.getNext();  // Verschiebe aktuelles Element ein Element weiter
+            elementdavor = elementdavor.getNext(); // Verschiebe "davor" ein Element weiter
+            k = k.getNext(); // Verschiebe aktuelles Element ein Element weiter
         }
         return false;
     }
@@ -285,8 +251,8 @@ public class Liste<T> implements List<T>{
     @Override
     public boolean containsAll(Collection c) {
         boolean listeenthaeltuniqueElementeAusCollection = true;
-        for(Object o:c){
-            if(!contains(o)){
+        for (Object o : c) {
+            if (!contains(o)) {
                 return false;
             }
         }
@@ -296,12 +262,12 @@ public class Liste<T> implements List<T>{
 
     @Override
     public boolean addAll(Collection c) {
-        boolean changed = false;  // Flag, um zu verfolgen, ob die Liste geändert wurde
-            for (Object o : c) {
-                add((T) o);  // Füge jedes Element der Collection hinzu
-                changed = true;  // Setze Flag auf true, wenn ein Element hinzugefügt wurde
-            }
-            return changed;  // Gibt true zurück, wenn die Liste geändert wurde
+        boolean changed = false; // Flag, um zu verfolgen, ob die Liste geändert wurde
+        for (Object o : c) {
+            add((T) o); // Füge jedes Element der Collection hinzu
+            changed = true; // Setze Flag auf true, wenn ein Element hinzugefügt wurde
+        }
+        return changed; // Gibt true zurück, wenn die Liste geändert wurde
         // throw new UnsupportedOperationException("Unimplemented method 'addAll'");
     }
 
@@ -309,9 +275,9 @@ public class Liste<T> implements List<T>{
     public boolean addAll(int index, Collection c) {
         boolean changed = false;
         for (Object o : c) {
-            add(index, (T) o);  // Füge jedes Element der Collection an der angegebenen Position hinzu
+            add(index, (T) o); // Füge jedes Element der Collection an der angegebenen Position hinzu
             changed = true;
-            index++;  // Erhöhe den Index für das nächste Element
+            index++; // Erhöhe den Index für das nächste Element
         }
         return changed;
         // throw new UnsupportedOperationException("Unimplemented method 'addAll'");
@@ -319,26 +285,27 @@ public class Liste<T> implements List<T>{
 
     @Override
     public boolean removeAll(Collection c) {
-        boolean changed  = false;  // Flag, um zu verfolgen, ob die Liste geändert wurde
-        for ( Object o:c){
-            while (remove(o)) {  // Entferne alle Vorkommen von o
-                changed = true;  // Setze Flag auf true, wenn ein Element entfernt wurde
+        boolean changed = false; // Flag, um zu verfolgen, ob die Liste geändert wurde
+        for (Object o : c) {
+            while (remove(o)) { // Entferne alle Vorkommen von o
+                changed = true; // Setze Flag auf true, wenn ein Element entfernt wurde
             }
         }
         return changed;
     }
 
     @Override
-    public boolean retainAll(Collection c) { //nur elemente die auch in collection sind, sollen in der Liste bleiben //vergleiche mit getWert() von Objekt Element
+    public boolean retainAll(Collection c) { // nur elemente die auch in collection sind, sollen in der Liste bleiben
+                                             // //vergleiche mit getWert() von Objekt Element
         int listenGroesse = size();
-        Element <T> node = getKopf();
-        for(int i = 0; i <listenGroesse; i ++){
-            if(!c.contains(node.getWert())){
-                
+        Element<T> node = getKopf();
+        for (int i = 0; i < listenGroesse; i++) {
+            if (!c.contains(node.getWert())) {
+
                 remove(node);
-            }else{
-                node= node.getNext();
-            }   
+            } else {
+                node = node.getNext();
+            }
 
         }
         return true;
@@ -346,90 +313,73 @@ public class Liste<T> implements List<T>{
 
     @Override
     public void clear() {
-        kopf = null; //kein kopf = keine liste
+        kopf = null; // kein kopf = keine liste
     }
 
     @Override
-    public T get(int index) {
-        int size = size();
-        Element<T> node = getKopf();
-        // Grenzfall: index außerhalb des Bereiches:
-        if (index < 0 || index >=size){
-            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds!");
+    public T get(int index) {//
+        if (index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size());
         }
-        for(int i = 0; i<index; i++){   // iteration über Index sinnig, man spaar ne unnötige abfrage
-            node = node.getNext();
-        }
-        return node.getWert();
+
+        return getNodeAt(index).getWert();
+
     }
-    
 
     @Override
-    public T set(int index, T element) {
-        int size = size();
-        Element<T> node = getKopf();
-        if (index < 0 || index >=size){
-            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds!");
+    public T set(int index, T element) {//
+        if (index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size());
         }
-        else if (index == 0){   // sonderfall: Kopf
-            T oldValue = kopf.getWert();    // wert zwischenspeichern, bevor dieser überschrieben wird
-            kopf.setWert(element);
-            return oldValue;
-        }
-        else {
-            for (int i=0; i<index-1; i++){
-            node = node.getNext();
-            }
-            T oldValue = node.getWert();    // siehe oben beim kopf
-            node.setWert(element);
-            return oldValue;
-        }
+        Element<T> current = getNodeAt(index);
+        T oldValue = getNodeAt(index).getWert();
+        current.setWert(element);
+
+        return oldValue;
     }
 
     @Override
     public void add(int index, T wert) {
 
         int size = size(); // instanziiert, damit die funktion nicht immer wieder aufgerufen wird
-        
-        if(index < 0 || index > size){
-            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds!"); 
-        }
-        else if (index == 0){
+
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds!");
+        } else if (index == 0) {
             kopf = new Element<>(wert, kopf);
-        }
-        else if(index==size){
+        } else if (index == size) {
             add(wert);
-        }
-        else {
+        } else {
             Element<T> node = getKopf();
-            for(int i = 0; i<index-1; i++){     // schleife iteriert über übergabe-index, NICHT size. 
-                node = node.getNext();          // man such also das Element VOR dem übergabe-Index
+            for (int i = 0; i < index - 1; i++) { // schleife iteriert über übergabe-index, NICHT size.
+                node = node.getNext(); // man such also das Element VOR dem übergabe-Index
             }
-            node.setNext(new Element<>(wert, node.getNext()));  // einfügen des elements zwischen VOR und nach dem Index.
+            node.setNext(new Element<>(wert, node.getNext())); // einfügen des elements zwischen VOR und nach dem Index.
         }
         size++;
     }
 
     @Override
     public T remove(int index) {
-        if(index >= size()){
+        if (index >= size()) {
             return null;
         }
-        if(index == 0) {
+        if (index == 0) {
             Element<T> node = this.getKopf();
-            if( size() > 1){
-                
-                this. setKopf(this.getKopf().getNext());
+            if (size() > 1) {
+
+                this.setKopf(this.getKopf().getNext());
                 return node.getWert();
             }
             setKopf(null);
             return node.getWert();
-           
-        }else{
-            Element<T> node = this.getKopf().getNext();  // Starte beim Kopf // diese variable wird "gelöscht"
-            Element<T> nodeZwischenElement = this.getKopf(); // diese variable wird den zeiger von der nodevariable übernehmen
-            int zaehler= 1;
-            while(zaehler < index){
+
+        } else {
+            Element<T> node = this.getKopf().getNext(); // Starte beim Kopf // diese variable wird "gelöscht"
+            Element<T> nodezwischElement = this.getKopf(); // diese variable wird den zeiger von der nodevariable
+                                                           // übernehmen
+            int zaehler = 1;
+            while (zaehler < index) {
                 node = node.getNext();
                 nodeZwischenElement = nodeZwischenElement.getNext();
                 zaehler++;
@@ -437,11 +387,10 @@ public class Liste<T> implements List<T>{
             nodeZwischenElement.setNext(node.getNext());
             return node.getWert();
         }
- 
-         //return null; hier würde der code nie hinkommen --> unreachable code
-    
 
-    }    
+        // return null; hier würde der code nie hinkommen --> unreachable code
+
+    }
 
     @Override
     public int indexOf(Object o) {
@@ -472,7 +421,6 @@ public class Liste<T> implements List<T>{
         return letzterIndex;
     }
 
-
     @Override
     public ListIterator listIterator() {
         // TODO Auto-generated method stub
@@ -491,20 +439,35 @@ public class Liste<T> implements List<T>{
             // System.out.println("Invalid fromIndex or toIndex");
             throw new IndexOutOfBoundsException("Invalid fromIndex or toIndex");
         }
-        Element<T> aktuell = kopf; // Das erste Element 
+        Element<T> aktuell = kopf; // Das erste Element
 
         for (int i = 0; i < fromIndex; i++) { // Solange i kleiner als der Startindex ist
-            aktuell = aktuell.getNext();      // gehen wir einen Index weiter
+            aktuell = aktuell.getNext(); // gehen wir einen Index weiter
         }
 
         Liste<T> sublist = new Liste<T>(aktuell.getWert()); // Subliste mit Kopfwert der Indexposition von fromIndex
-        aktuell = aktuell.getNext(); // Wir gehen eine Indexposition weiter und zeigen auf das nächste Element nach fromIndex  
+        aktuell = aktuell.getNext(); // Wir gehen eine Indexposition weiter und zeigen auf das nächste Element nach
+                                     // fromIndex
 
         for (int i = fromIndex; i < toIndex; i++) { // Solange i kleiner/gleich der toIndex Position ist,
-            sublist.add(aktuell.getWert());          // wird der sublist via ad-Methode ans Ende hinzugefügt
+            sublist.add(aktuell.getWert()); // wird der sublist via ad-Methode ans Ende hinzugefügt
             aktuell = aktuell.getNext();
         }
 
         return sublist; // Rüchgabe der fertigen Sublist
+    }
+
+    /**
+     * Amjad Awad Allah
+     * Hilfsmethode, die das Element an der gegebenen Position findet.
+     **/
+    private Element<T> getNodeAt(int index) {
+        Element<T> current = kopf;
+
+        for (int i = 0; i < index; i++) {
+            current = current.getNext();
+        }
+
+        return current;
     }
 }

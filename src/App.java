@@ -99,5 +99,44 @@ public class App {
         Liste<String> subListe = liste.subList(1, 3); // Erstelle eine Sublist von Index 1 bis 2
         ausgabeListe(subListe);
 
+
+          // test Object[] toArray(Object[] a)
+        Liste<String> testListekurz = new Liste<>("Pferd"); 
+        testListekurz.add("Kuh");
+
+        Liste<String> testListeLang = new Liste<>("Schaf"); 
+        testListeLang.add("Reh");
+        testListeLang.add("Reh");
+        testListeLang.add("Ziege");
+
+        String[] testArrayKurz = {"Barsch","Hecht"};
+        String[] testArrayLang = { "Hai", "Thunfisch","Moräne"};
+
+
+        Object[] kurzZuKurz  = new Object[4];
+        kurzZuKurz =  testListekurz.toArray(testArrayKurz); 
+
+        Object[] LangZuKurz  = new Object[4];
+        LangZuKurz =  testListeLang.toArray(testArrayKurz); 
+
+        Object[] KurzZuLang  = new Object[3];
+        KurzZuLang =  testListekurz.toArray(testArrayLang); 
+
+        System.out.println("\n---------------------------------\n");
+        System.out.println("Kurz in Lang:");
+        for (Object ausgabe : KurzZuLang) {
+            System.out.println(ausgabe);
+        }
+        System.out.println("Kurz in Kurz:");
+        for (Object ausgabe : kurzZuKurz) {
+            System.out.println(ausgabe);
+        }
+                System.out.println("Lang in Kurz:");
+        for (Object ausgabe : LangZuKurz
+
+        ) {
+            System.out.println(ausgabe);
+        }
+        System.out.println("\n---------------------------------\n");
     }
 }
